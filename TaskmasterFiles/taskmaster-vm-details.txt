@@ -1,0 +1,11 @@
+name - taskmaster-vm
+user - keshavmaiya
+ip - 4.240.96.118
+
+superuser
+
+keshav
+pass - Hazimastan@1
+
+keshavmain
+pass - password
