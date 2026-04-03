@@ -13,10 +13,12 @@
   <img src="https://img.shields.io/static/v1?style=flat-square&label=CORE&message=SYSTEM+DESIGN&color=000000&logo=diagrams.net&logoColor=white" alt="System Design">
 </p>
 
-![[A (4).png]]
-![[A (1).png]]
-![[A (2).png]]
-![[A (3).png]]
+
+
+![Them Notes](A1.png)
+![Them Notes](./0IMAGES/A1.png)
+![Them Notes](./0IMAGES/A2.png)
+![Them Notes](./0IMAGES/A3.png)
 
 Repo contains all my md files for everything I'm learning or planning on learning.
 Documents are numbered and related files are linked.
