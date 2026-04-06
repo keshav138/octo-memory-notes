@@ -19,7 +19,7 @@ I’ve **included answers**, but _not right next to questions_ → so you can at
 # 🧠 SECTION 1: ML MODELS & CORE CONCEPTS
 
 ### Q1. Which of the following are classification algorithms? _(Multi-select)_
-
+`A  + C `
 A. Logistic Regression  
 B. K-Means  
 C. SVM  
@@ -30,7 +30,7 @@ D. Linear Regression
 ### Q2. Logistic Regression outputs:
 
 A. Continuous values  
-B. Probabilities  
+B. Probabilities  ✔
 C. Class labels directly  
 D. Clusters
 
@@ -38,17 +38,17 @@ D. Clusters
 
 ### Q3. Which models are distance-based? _(Multi-select)_
 
-A. KNN  
-B. K-Means  
+A. KNN  ✔
+B. K-Means  ✔
 C. Decision Tree  
-D. SVM (with RBF kernel)
+D. SVM (with RBF kernel)✔
 
 ---
 
 ### Q4. What happens when K in KNN is too large?
 
 A. Overfitting  
-B. Underfitting  
+B. Underfitting  ✔
 C. No change  
 D. Model becomes non-deterministic
 
@@ -56,26 +56,26 @@ D. Model becomes non-deterministic
 
 ### Q5. Which algorithms are unsupervised? _(Multi-select)_
 
-A. PCA  
-B. K-Means  
+A. PCA  ✔
+B. K-Means  ✔
 C. Random Forest  
-D. Hierarchical Clustering
+D. Hierarchical Clustering ✔ 
 
 ---
 
 ### Q6. Decision Trees split based on: _(Multi-select)_
 
-A. Entropy  
-B. Gini Index  
+A. Entropy  ✔
+B. Gini Index  ✔
 C. Euclidean Distance  
-D. Information Gain
+D. Information Gain✔
 
 ---
 
 ### Q7. Random Forest improves performance by:
 
 A. Reducing bias  
-B. Reducing variance  
+B. Reducing variance  ✔
 C. Increasing overfitting  
 D. Removing randomness
 
@@ -83,9 +83,9 @@ D. Removing randomness
 
 ### Q8. Which are ensemble methods? _(Multi-select)_
 
-A. Bagging  
-B. Boosting  
-C. Random Forest  
+A. Bagging  ✔
+B. Boosting  ✔
+C. Random Forest  ✔
 D. PCA
 
 ---
@@ -93,7 +93,7 @@ D. PCA
 ### Q9. What is PCA used for?
 
 A. Classification  
-B. Dimensionality reduction  
+B. Dimensionality reduction  ✔
 C. Clustering  
 D. Feature scaling
 
@@ -101,8 +101,8 @@ D. Feature scaling
 
 ### Q10. Which models assume linear separability? _(Multi-select)_
 
-A. Logistic Regression  
-B. Linear SVM  
+A. Logistic Regression  ✔
+B. Linear SVM  ✔
 C. KNN  
 D. Naive Bayes
 
@@ -114,16 +114,16 @@ D. Naive Bayes
 
 ### Q11. Which are vector operations? _(Multi-select)_
 
-A. Dot product  
-B. Cross product  
+A. Dot product  ✔
+B. Cross product  ✔
 C. Matrix inverse  
-D. Scalar multiplication
+D. Scalar multiplication✔
 
 ---
 
 ### Q12. Gradient represents:
 
-A. Direction of steepest ascent  
+A. Direction of steepest ascent  ✔
 B. Minimum value  
 C. Loss value  
 D. Probability
@@ -132,9 +132,9 @@ D. Probability
 
 ### Q13. Which are convex functions properties? _(Multi-select)_
 
-A. Single global minimum  
+A. Single global minimum  ✔
 B. Multiple minima  
-C. Easier optimization  
+C. Easier optimization  ✔
 D. Always linear
 
 ---
@@ -142,7 +142,7 @@ D. Always linear
 ### Q14. What is the derivative of ( x^2 )?
 
 A. x  
-B. 2x  
+B. 2x  ✔
 C. x²  
 D. 1
 
@@ -150,9 +150,9 @@ D. 1
 
 ### Q15. Which distributions are commonly used in ML? _(Multi-select)_
 
-A. Gaussian  
-B. Bernoulli  
-C. Uniform  
+A. Gaussian  ✔
+B. Bernoulli  ✔
+C. Uniform  ✔
 D. Fibonacci
 
 ---
@@ -160,7 +160,7 @@ D. Fibonacci
 ### Q16. What does covariance measure?
 
 A. Distance  
-B. Relationship between variables  
+B. Relationship between variables  ✔
 C. Error rate  
 D. Probability
 
@@ -168,7 +168,7 @@ D. Probability
 
 ### Q17. Which norm is used in Lasso regularization?
 
-A. L1  
+A. L1  ✔
 B. L2  
 C. L∞  
 D. Frobenius
@@ -178,7 +178,7 @@ D. Frobenius
 ### Q18. Which norm is used in Ridge regression?
 
 A. L1  
-B. L2  
+B. L2  ✔
 C. None  
 D. Binary
 
@@ -186,9 +186,9 @@ D. Binary
 
 ### Q19. What is eigenvalue decomposition used for? _(Multi-select)_
 
-A. PCA  
+A. PCA  ✔
 B. Neural Networks  
-C. Matrix factorization  
+C. Matrix factorization  ✔
 D. Clustering
 
 ---
@@ -197,7 +197,7 @@ D. Clustering
 
 A. Regression  
 B. Binary classification  
-C. Multi-class classification  
+C. Multi-class classification ✔ 
 D. Clustering
 
 ---
@@ -210,16 +210,16 @@ D. Clustering
 
 A. Recurrence  
 B. Convolutions  
-C. Attention  
+C. Attention  ✔
 D. Decision trees
 
 ---
 
 ### Q22. Which are parts of attention mechanism? _(Multi-select)_
 
-A. Query  
-B. Key  
-C. Value  
+A. Query  ✔
+B. Key  ✔
+C. Value  ✔
 D. Weight
 
 ---
@@ -227,7 +227,7 @@ D. Weight
 ### Q23. What does positional encoding do?
 
 A. Reduces parameters  
-B. Adds sequence order  
+B. Adds sequence order  ✔
 C. Removes tokens  
 D. Improves clustering
 
@@ -236,7 +236,7 @@ D. Improves clustering
 ### Q24. GPT models are:
 
 A. Encoder-only  
-B. Decoder-only  
+B. Decoder-only  ✔
 C. Encoder-decoder  
 D. CNN-based
 
@@ -245,7 +245,7 @@ D. CNN-based
 ### Q25. BERT is:
 
 A. Decoder-only  
-B. Encoder-only  
+B. Encoder-only  ✔
 C. Reinforcement model  
 D. Clustering model
 
@@ -253,7 +253,7 @@ D. Clustering model
 
 ### Q26. What is tokenization?
 
-A. Splitting text into units  
+A. Splitting text into units  ✔
 B. Encoding images  
 C. Training weights  
 D. Reducing dataset
@@ -262,17 +262,17 @@ D. Reducing dataset
 
 ### Q27. Which are tokenization methods? _(Multi-select)_
 
-A. BPE  
-B. WordPiece  
-C. SentencePiece  
-D. One-hot
+A. BPE  ✔
+B. WordPiece  ✔
+C. SentencePiece  ✔
+D. One-hot 
 
 ---
 
 ### Q28. What is temperature in LLMs?
 
 A. Model size  
-B. Randomness control  
+B. Randomness control  ✔
 C. Training speed  
 D. Token length
 
@@ -281,7 +281,7 @@ D. Token length
 ### Q29. What is hallucination in LLMs?
 
 A. Memory overflow  
-B. Generating incorrect info confidently  
+B. Generating incorrect info confidently  ✔
 C. Token limit issue  
 D. Overfitting
 
@@ -289,9 +289,9 @@ D. Overfitting
 
 ### Q30. Which improves LLM factual accuracy? _(Multi-select)_
 
-A. RAG  
-B. Fine-tuning  
-C. Prompt engineering  
+A. RAG  ✔
+B. Fine-tuning  ✔
+C. Prompt engineering  ✔
 D. Dropout
 
 ---
@@ -303,7 +303,7 @@ D. Dropout
 ### Q31. What are embeddings?
 
 A. Raw text  
-B. Numerical vector representations  
+B. Numerical vector representations  ✔
 C. Images  
 D. Clusters
 
@@ -311,9 +311,9 @@ D. Clusters
 
 ### Q32. Similarity search uses: _(Multi-select)_
 
-A. Cosine similarity  
-B. Euclidean distance  
-C. Manhattan distance  
+A. Cosine similarity  ✔
+B. Euclidean distance  ✔
+C. Manhattan distance  ✔
 D. Binary search
 
 ---
@@ -322,16 +322,16 @@ D. Binary search
 
 A. SQL joins  
 B. Exact match queries  
-C. Nearest neighbor search  
+C. Nearest neighbor search  ✔
 D. Sorting
 
 ---
 
 ### Q34. Which are vector DBs? _(Multi-select)_
 
-A. Pinecone  
-B. FAISS  
-C. Milvus  
+A. Pinecone  ✔
+B. FAISS  ✔
+C. Milvus  ✔
 D. MySQL
 
 ---
@@ -339,7 +339,7 @@ D. MySQL
 ### Q35. ANN stands for:
 
 A. Artificial Neural Network  
-B. Approximate Nearest Neighbor  
+B. Approximate Nearest Neighbor  ✔
 C. Automatic Node Network  
 D. Advanced Neural Node
 
@@ -348,7 +348,7 @@ D. Advanced Neural Node
 ### Q36. Why use ANN instead of exact search?
 
 A. Accuracy  
-B. Speed  
+B. Speed  ✔
 C. Memory reduction  
 D. Simplicity
 
@@ -356,17 +356,17 @@ D. Simplicity
 
 ### Q37. Which indexing methods are used? _(Multi-select)_
 
-A. IVF  
-B. HNSW  
+A. IVF  ✔
+B. HNSW  ✔
 C. B-tree  
-D. LSH
+D. LSH✔
 
 ---
 
 ### Q38. What is cosine similarity range?
 
 A. 0 to 1  
-B. -1 to 1  
+B. -1 to 1  ✔
 C. 0 to 100  
 D. -∞ to ∞
 
@@ -374,7 +374,7 @@ D. -∞ to ∞
 
 ### Q39. What does RAG combine?
 
-A. Retrieval + Generation  
+A. Retrieval + Generation  ✔
 B. Regression + Attention  
 C. Ranking + Graphs  
 D. Reinforcement + GAN
@@ -384,7 +384,7 @@ D. Reinforcement + GAN
 ### Q40. In RAG, vector DB is used for:
 
 A. Training model  
-B. Retrieving context  
+B. Retrieving context  ✔
 C. Tokenizing text  
 D. Updating weights
 
@@ -396,10 +396,10 @@ D. Updating weights
 
 ### Q41. Which are used for ML? _(Multi-select)_
 
-A. scikit-learn  
-B. TensorFlow  
-C. PyTorch  
-D. NumPy
+A. scikit-learn  ✔
+B. TensorFlow  ✔
+C. PyTorch  ✔
+D. NumPy✔
 
 ---
 
@@ -407,15 +407,15 @@ D. NumPy
 
 A. PyTorch  
 B. TensorFlow  
-C. scikit-learn  
+C. scikit-learn  ✔
 D. OpenCV
 
 ---
 
 ### Q43. Which library is used for deep learning? _(Multi-select)_
 
-A. PyTorch  
-B. TensorFlow  
+A. PyTorch  ✔
+B. TensorFlow  ✔
 C. Pandas  
 D. NumPy
 
@@ -424,7 +424,7 @@ D. NumPy
 ### Q44. Pandas is used for:
 
 A. Model training  
-B. Data manipulation  
+B. Data manipulation  ✔
 C. GPU computation  
 D. Tokenization
 
@@ -432,18 +432,18 @@ D. Tokenization
 
 ### Q45. NumPy is used for: _(Multi-select)_
 
-A. Arrays  
-B. Linear algebra  
+A. Arrays  ✔
+B. Linear algebra  ✔
 C. Neural networks  
-D. Broadcasting
+D. Broadcasting✔
 
 ---
 
 ### Q46. Which are visualization libraries? _(Multi-select)_
 
-A. Matplotlib  
-B. Seaborn  
-C. Plotly  
+A. Matplotlib  ✔
+B. Seaborn  ✔
+C. Plotly  ✔
 D. TensorFlow
 
 ---
@@ -451,7 +451,7 @@ D. TensorFlow
 ### Q47. What is `.fit()` used for?
 
 A. Prediction  
-B. Training  
+B. Training  ✔
 C. Evaluation  
 D. Visualization
 
@@ -460,7 +460,7 @@ D. Visualization
 ### Q48. What is `.predict()` used for?
 
 A. Training  
-B. Prediction  
+B. Prediction  ✔
 C. Scaling  
 D. Clustering
 
@@ -468,9 +468,9 @@ D. Clustering
 
 ### Q49. Which is used for NLP? _(Multi-select)_
 
-A. spaCy  
-B. NLTK  
-C. Transformers  
+A. spaCy  ✔
+B. NLTK  ✔
+C. Transformers  ✔
 D. OpenCV
 
 ---
@@ -480,7 +480,7 @@ D. OpenCV
 A. Datasets  
 B. Pretrained models  
 C. Tokenizers  
-D. All of the above
+D. All of the above✔
 
 ---
 
