@@ -14,8 +14,6 @@
 </p>
 
 
-
-![Them Notes](A1.png)
 ![Them Notes](./0IMAGES/A1.png)
 ![Them Notes](./0IMAGES/A2.png)
 ![Them Notes](./0IMAGES/A3.png)
