@@ -1,6 +1,11 @@
 Just shipped TaskMaster - A Full-Stack Real-Time Task Management Platform
 Spent the last few weeks building a production-grade collaboration tool from scratch. This wasn't just another CRUD app - I wanted to tackle real backend complexity and deployment challenges.
 
+PASSWORDS
+bob password123
+alice password123
+
+
 What I Built:
 A complete task management system where teams can create projects, assign tasks, and see updates happen live across all connected users. Think Trello meets real-time collaboration.
 
