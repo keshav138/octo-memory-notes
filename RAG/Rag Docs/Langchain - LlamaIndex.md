@@ -23,17 +23,17 @@ LangChain & LlamaIndex give you **standard Lego blocks** for each piece — plus
 
 ## What both do (the big picture)
 
-| Capability | What it means for RAG |
-|------------|----------------------|
-| **Document loaders** | Read from PDFs, websites, databases, Notion, Slack, YouTube transcripts — unified API |
-| **Text splitters** | Chunk documents intelligently (by sentence, paragraph, semantic boundaries) |
-| **Embedding integrations** | Generate embeddings using OpenAI, Cohere, HuggingFace, local models |
-| **Vector store connectors** | Talk to Pinecone, Weaviate, Chroma, FAISS, Qdrant, LanceDB |
-| **Retrieval strategies** | Simple similarity, multi‑query, parent‑child, recursive retriever, hybrid search |
-| **Prompt management** | Store, version, and inject prompts with context from retrieved chunks |
-| **Memory** | Keep conversation history across turns (e.g., “as I said earlier…”)
-| **Chains / pipelines** | Combine steps: retrieve → summarize → translate → answer |
-| **Agents** | Let the LLM decide *when* to retrieve, what tool to use, and when to stop |
+| Capability                  | What it means for RAG                                                                 |
+| --------------------------- | ------------------------------------------------------------------------------------- |
+| **Document loaders**        | Read from PDFs, websites, databases, Notion, Slack, YouTube transcripts — unified API |
+| **Text splitters**          | Chunk documents intelligently (by sentence, paragraph, semantic boundaries)           |
+| **Embedding integrations**  | Generate embeddings using OpenAI, Cohere, HuggingFace, local models                   |
+| **Vector store connectors** | Talk to Pinecone, Weaviate, Chroma, FAISS, Qdrant, LanceDB                            |
+| **Retrieval strategies**    | Simple similarity, multi‑query, parent‑child, recursive retriever, hybrid search      |
+| **Prompt management**       | Store, version, and inject prompts with context from retrieved chunks                 |
+| **Memory**                  | Keep conversation history across turns (e.g., “as I said earlier…”)                   |
+| **Chains / pipelines**      | Combine steps: retrieve → summarize → translate → answer                              |
+| **Agents**                  | Let the LLM decide *when* to retrieve, what tool to use, and when to stop             |
 
 ---
 
