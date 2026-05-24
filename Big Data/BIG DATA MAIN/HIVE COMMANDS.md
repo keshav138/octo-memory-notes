@@ -7,7 +7,7 @@
 
 ==USE SEMICOLONS HERE==
 `create database <name>;`
-`show databases;C:\Users\ASUS\Desktop\Sem\BigDataFiles\hivefil`
+`show databases;`
 `use <name>;`
 `create table <table_name>`
 `show tables;`
