@@ -1,142 +1,136 @@
-## Kubernetes YAML Structure
-
-Every K8s YAML file follows this skeleton, top to bottom:
-
-```yaml
-apiVersion: ...
-kind: ...
-metadata: ...
-spec: ...
-```
-
-These 4 top-level fields are **always present, always in this order.** Everything else lives inside them.
+Let me break Kubernetes down to its core first, then we'll write the files.
 
 ---
 
-### The 4 Top-Level Fields
+**The mental model**
 
-**`apiVersion`** — Which API group/version this object belongs to.
+Think of it like this — Docker Compose is "run these containers on _this_ machine". Kubernetes is "run these containers, and I don't care which machine, just keep them alive".
 
-- `v1` — core objects (Pod, Service, ConfigMap)
-- `apps/v1` — workload objects (Deployment, ReplicaSet)
-- `batch/v1` — Jobs, CronJobs
+Everything in Kubernetes is defined in YAML files called **manifests**. You describe _what you want_, Kubernetes figures out _how to do it_.
 
-**`kind`** — What object you're defining. (`Deployment`, `Service`, `Pod`, etc.)
+---
 
-**`metadata`** — Identity of the object.
+**3 concepts you need for 90% of use cases**
+
+**Deployment** — "Run this container image, keep N copies alive, restart if it crashes."
+
+**Service** — "Give this container a stable way to be reached." Containers are temporary, their IPs change. A Service sits in front and gives a fixed address.
+
+**Types of Service:**
+
+- `ClusterIP` — only reachable inside the cluster (default)
+- `NodePort` — exposes a port on the node itself, reachable from outside (what we'll use with minikube)
+- `LoadBalancer` — for cloud providers, gives a public IP
+
+That's genuinely it for a basic setup. One Deployment + one Service per app.
+
+---
+
+**The YAML structure to memorize**
+
+Every Kubernetes manifest has these 4 top-level fields:
 
 ```yaml
+apiVersion:   # which API to use
+kind:         # what type of object (Deployment, Service, etc.)
+metadata:     # name, labels
+spec:         # the actual config — differs per kind
+```
+
+---
+
+Now the actual files for your project. Since minikube has its own internal Docker daemon, we need to point your terminal at it so it can see locally built images directly, no registry needed.
+
+---**The `---` in the middle** just separates two manifests in one file. Kubernetes reads them as two separate objects.
+
+```
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: flask-app           # required, unique within namespace
-  namespace: default        # optional, defaults to 'default'
-  labels:                   # key-value tags, used for selecting/grouping
-    app: flask-app
-    env: production
-```
-
-**`spec`** — The actual desired state. **This changes completely depending on `kind`.** A Deployment spec looks nothing like a Service spec.
-
----
-
-### How Nesting Works
-
-Indentation = ownership. A child is owned/scoped by its parent.
-
-```yaml
-spec:                          # Deployment spec
-  replicas: 2
-  selector:                    # how Deployment finds its Pods
-    matchLabels:
-      app: flask-app
-  template:                    # Pod template (a Pod definition, nested inside)
-    metadata:
-      labels:
-        app: flask-app
-    spec:                      # Pod spec (different from Deployment spec)
-      containers:
-        - name: flask-container
-          image: flask-app:latest
-          ports:
-            - containerPort: 5000
-```
-
-Notice there are **two `spec` blocks** — one for the Deployment, one for the Pod template inside it. This is normal and expected.
-
----
-
-### The `template` Block
-
-This is the most confusing part for beginners. Inside a Deployment, `template` is essentially **a full Pod definition** nested inside the Deployment spec.
-
-```yaml
-# Deployment spec
+  name: flask-app
 spec:
-  replicas: 2
-  selector: ...
-  template:           # ← everything below here is the Pod
-    metadata:         # Pod's metadata (needs labels to match selector)
-      labels:
-        app: flask-app
-    spec:             # Pod's spec
-      containers: []
-```
-
-The Deployment uses this template to stamp out however many pod replicas you asked for.
-
----
-
-### Labels & Selectors — The Glue
-
-Labels are how objects find and talk to each other. The same label must appear in 3 places to wire a Deployment + Service together:
-
-```yaml
-# Deployment
-spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: flask-app        # 1. Deployment looks for pods with this label
-
+      app: flask-app       # Deployment manages pods with this label
   template:
     metadata:
       labels:
-        app: flask-app      # 2. Pods get this label stamped on them
+        app: flask-app     # Pod gets this label
+    spec:
+      containers:
+        - name: flask-app
+          image: flask-monitoring-flask-app:latest
+          imagePullPolicy: Never   # use local image, don't try Docker Hub
+          ports:
+            - containerPort: 5000
 
 ---
-# Service
-spec:
-  selector:
-    app: flask-app          # 3. Service routes traffic to pods with this label
-```
 
-If any of these three mismatch, things silently break (pods run but get no traffic, or deployment can't manage its pods).
-
----
-
-### Multi-object Files
-
-You can stack multiple objects in one file using `---` as a separator. Order doesn't technically matter to K8s but convention is Deployment first, Service second.
-
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-...
----
 apiVersion: v1
 kind: Service
-...
+metadata:
+  name: flask-app-service
+spec:
+  type: NodePort
+  selector:
+    app: flask-app         # routes traffic to pods with this label
+  ports:
+    - port: 5000           # port on the Service
+      targetPort: 5000     # port on the container
+      nodePort: 30500      # port you'll hit from your browser (30000-32767)
 ```
 
 ---
 
-### Summary of the Mental Model
+**How the label system works** (this is what confuses most people)
 
 ```
-apiVersion  →  tells K8s which API to use
-kind        →  what you're creating
-metadata    →  name, labels (identity + grouping)
-spec        →  desired state (unique per kind)
-  └─ for Deployments, spec contains a template
-       └─ template contains another metadata + spec (the Pod)
+Deployment  →  selector.matchLabels: app: flask-app
+                         ↓ manages pods that have this label
+Pod         →  labels: app: flask-app
+                         ↑ Service finds pods using this same label
+Service     →  selector: app: flask-app
 ```
 
-The general rule: **top = identity, bottom = behavior.** The deeper you go, the more specific the configuration gets.
+They're all just talking to each other via matching labels.
+
+---
+
+**To run it:**
+
+```bash
+# 1. start minikube
+minikube start
+
+# 2. point your terminal's docker at minikube's daemon
+eval $(minikube docker-env)        # mac/linux
+# on Windows (PowerShell):
+minikube docker-env | Invoke-Expression
+
+# 3. build the image inside minikube's docker
+docker build -t flask-monitoring-flask-app:latest .
+
+# 4. apply the manifest
+kubectl apply -f k8s-flask.yml
+
+# 5. check it's running
+kubectl get pods
+kubectl get services
+
+# 6. get the URL to open in browser
+minikube service flask-app-service --url
+```
+
+---
+
+**Useful kubectl commands to know:**
+
+```bash
+kubectl get pods                        # list running pods
+kubectl describe pod <pod-name>         # full detail if something's wrong
+kubectl logs <pod-name>                 # container logs
+kubectl delete -f k8s-flask.yml        # tear it all down
+```
+
+The key thing to remember — `kubectl apply` is idempotent, you can run it repeatedly and it'll only update what changed.
