@@ -55,7 +55,7 @@ Attention(Q,K,V) = softmax(QKᵀ / √d_k) · V
 
 Instead of one Q/K/V projection of size `d_model`, you split into `h` heads, each projecting into `d_model/h` dimensions, run attention independently per head, then concatenate and project back through one more linear layer.
 
-**Why multiple heads instead of one big attention operation?** A single attention operation computes one notion of "relevance" per token pair. But relevance is multi-faceted — one head might learn to track syntactic dependency (subject-verb), another might track coreference (pronoun-to-noun), another might track local adjacency. Multiple heads let the model learn several relevance patterns in parallel, then combine them. It's essentially an ensemble baked into one layer.
+**Why multiple heads instead of one big attention operation?** A single attention operation computes one notion of "relevance" per token pair.==But relevance is multi-faceted — one head might learn to track syntactic dependency (subject-verb), another might track coreference (pronoun-to-noun), another might track local adjacency.== Multiple heads let the model learn several relevance patterns in parallel, then combine them. It's essentially an ensemble baked into one layer.
 
 ### Step E: Residual Connection + Layer Normalization
 
@@ -138,7 +138,7 @@ This is the part that often gets skipped in architecture explanations, so here's
 
 **c) Instruction tuning / SFT (Supervised Fine-Tuning)**: Take the _same_ architecture and weights, continue training on curated (prompt, ideal-response) pairs. This doesn't add new transformer blocks — it's the same network, weights updated further so its next-token predictions are steered toward helpful-assistant-style outputs.
 
-**d) RLHF / RLAIF (preference-based fine-tuning)**: A second model (a "reward model," itself often a smaller transformer with a classification head instead of a vocab-prediction head) is trained to score outputs by human/AI preference. The base assistant model's weights are then further updated (via RL, e.g., PPO, or simpler methods like DPO) to produce outputs the reward model scores highly. **Why is a separate transformer needed here?** Because "is this response good" isn't a next-token-prediction task — it's a scalar judgment task, so it needs a differently-headed model trained on comparison data, even though its backbone is architecturally similar.
+**d) RLHF ( Reinforcement Learning From Human Feedback) / RLAIF (preference-based fine-tuning)**: A second model (a "reward model," itself often a smaller transformer with a classification head instead of a vocab-prediction head) is trained to score outputs by human/AI preference. The base assistant model's weights are then further updated (via RL, e.g., PPO, or simpler methods like DPO) to produce outputs the reward model scores highly. **Why is a separate transformer needed here?** Because "is this response good" isn't a next-token-prediction task — it's a scalar judgment task, so it needs a differently-headed model trained on comparison data, even though its backbone is architecturally similar.
 
 **e) Retrieval-Augmented Generation (RAG)** — relevant to your Financial RAG project: here, _two_ separate models are threaded together at inference time, not training time:
 
