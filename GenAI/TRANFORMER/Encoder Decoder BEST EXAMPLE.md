@@ -355,8 +355,8 @@ whose tokens best match the training examples.
 
 So the encoder's job is to build a rich representation of the **meaning** of the source sentence, and the decoder's job is to learn the conditional probability
 
-[  
+$$
 P(\text{next French token} \mid \text{previous French tokens}, \text{encoder output})  
-]
+$$
 
 The "knowledge of French" isn't stored anywhere separately. It's encoded in the learned weights of the decoder (and the shared embedding/output layers), which have been optimized over millions of English–French sentence pairs to assign high probability to correct French continuations.
