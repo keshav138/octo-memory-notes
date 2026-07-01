@@ -1,5 +1,4 @@
-
-## PyTorch cheatsheet — transformer / YOLO style
+## PyTorch cheatsheet — Transformer / YOLO style
 
 ---
 
