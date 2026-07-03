@@ -1,7 +1,7 @@
 Absolutely. Let's ignore all the complexities of a real LLM and imagine our input is just three tokens:
 
 ```
-[a$$ [b$$ [c$$
+[a] [b] [c]
 ```
 
 We'll walk through exactly what happens inside **one attention head in one transformer layer**.e
