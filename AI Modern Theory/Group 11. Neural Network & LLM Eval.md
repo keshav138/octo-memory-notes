@@ -1,6 +1,8 @@
 ## D. Neural Network Adjacent
 
 ### 1. Vanishing/Exploding Gradients
+[[Vanishing Gradient Issue]]
+[[Vanishing Gradient Solution]]
 
 - **Symptom**: deep network's early layers barely update (loss plateaus early, weights near-unchanged) = vanishing. Loss becomes NaN/explodes suddenly = exploding.
 - **Cause**: repeated multiplication of gradients through many layers — if weights/derivatives are consistently <1, gradient shrinks exponentially with depth (vanishing); if consistently >1, it grows exponentially (exploding). Sigmoid/tanh activations worsen vanishing since their derivative max is 0.25/1.0 and saturates near 0 at extremes.
@@ -9,6 +11,8 @@
 - Exploding → gradient clipping, lower learning rate, weight regularization, batch norm.
 
 **Likely question framing**: "50-layer network, loss stuck near initial value, first 10 layers' weights unchanged after training — diagnose and fix" → vanishing gradients, prescribe residual connections + non-saturating activation.
+
+
 
 ---
 

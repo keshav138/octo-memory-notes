@@ -36,7 +36,9 @@
 - **stdio transport in MCP**: the client spawns the MCP server as a **local subprocess** and communicates via stdin/stdout. This is inherently **single-connection, single-process** — one client process, one server process, tightly coupled 1:1.
 - **Prod requirement**: multiple simultaneous client connections (many users hitting the same MCP-backed tool concurrently).
 - **Why stdio breaks down**: stdio ties one server process to one client session; it doesn't natively support multiple concurrent remote clients talking to a shared server instance — spawning a new subprocess per user doesn't scale well (process overhead, no shared state/connection pooling, no network-accessible endpoint).
-- **Required change**: switch to a **network-based transport** — MCP's **HTTP+SSE (or streamable HTTP)** transport, which runs the server as a standalone network service that can accept multiple concurrent client connections over HTTP, rather than a locally-spawned subprocess per client.
+- **Required change**: switch to a **network-based transport** — MCP's **HTTP+SSE (==Security Service Edge== : SSE refers to a cloud-delivered security architecture that securely connects users to applications, websites, and data) (or streamable HTTP)** transport, which runs the server as a standalone network service that can accept multiple concurrent client connections over HTTP, rather than a locally-spawned subprocess per client.
+
+[[MCP 1]] [[MCP Setup]] [[MCP Remote]]
 
 ---
 

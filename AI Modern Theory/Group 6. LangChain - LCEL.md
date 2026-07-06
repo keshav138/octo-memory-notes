@@ -5,6 +5,78 @@
 - **Model chaining** = output of one LLM call feeds into the next step (e.g., generate → critique → revise), each as a Runnable in the pipe.
 - Benefit over manual chaining (writing custom Python glue code): built-in streaming, batching, async, and retry support come "for free" for any composed chain, since they're implemented once at the Runnable level.
 
+#### Runnables
+In LangChain, **Runnables** are the building blocks of the entire ecosystem. They are a set of standardized methods that make it easy to create, chain, and execute components of your AI application.
+
+Before Runnables, LangChain used a "Chain" class that was often rigid and hard to customize. The **LangChain Expression Language (LCEL)** introduced the concept of Runnables to make chains **composable**, **modular**, and **asynchronous-first**.
+
+#### 1. What makes something a "Runnable"?
+
+Any component that implements the `Runnable` interface gains a set of standard methods. Whether it is an LLM, a prompt template, a retriever, or a custom piece of code, it can be "run" using these commands:
+
+- **`.invoke()`**: Run the component on a single input.
+    
+- **`.stream()`**: Stream back chunks of the response as they are generated.
+    
+- **`.batch()`**: Run the component on a list of inputs in parallel.
+    
+- **`.ainvoke()` / `.astream()` / `.abatch()`**: The asynchronous versions of the above.
+    
+#### 2. How they change the game: The Pipe Operator (`|`)
+
+The most powerful feature of Runnables is the ability to use the **pipe operator (`|`)** to chain them together. This works just like the Unix pipe (`|`), where the output of one component becomes the input of the next.
+
+#### Example:
+
+Imagine you are building a simple RAG pipeline for your Data Science projects:
+
+Python
+
+```
+# The pipe (|) connects these components automatically
+chain = prompt_template | llm | output_parser
+
+# Now you can call the whole chain as one unit
+result = chain.invoke({"topic": "Formula 1 Telemetry"})
+```
+
+In this code:
+
+1. **Prompt Template (Runnable)** takes a dictionary and outputs a string.
+    
+2. **LLM (Runnable)** takes that string and outputs a message.
+    
+3. **Output Parser (Runnable)** takes the message and turns it into a clean object.
+    
+
+#### 3. Why Runnables are essential for Agents
+
+Since you have been exploring agentic loops and error modes, Runnables are critical for you for two reasons:
+
+- **Transparent Logging:** Because every step in a chain is a `Runnable`, LangChain can easily trace exactly what happened at every stage (input -> tool call -> output). This is how you debug **Cascading Errors**.
+    
+- **Fallback Logic:** You can attach fallbacks to any Runnable. If your primary LLM fails or a tool returns an error, the `Runnable` can automatically trigger a secondary path:
+    
+    Python
+    
+    ```
+    chain = primary_llm.with_fallbacks([secondary_llm])
+    ```
+    
+- **Customization:** You can wrap any Python function in a `RunnableLambda`. This allows you to insert custom logic (like your state checks or validation gates) directly into the chain.
+    
+
+#### Summary
+
+Think of Runnables as **standardized LEGO bricks**. Because every piece (LLM, Prompt, Retriever, Tool) uses the same `Runnable` interface, they can all snap together seamlessly.
+
+- **Old way:** Creating complex classes and hoping the `chain.run()` method understood your inputs.
+    
+- **Runnable way:** Treating every component as a black box that accepts an input and produces an output, which you then pipe into the next box.
+    
+
+As you look at your **TaskMaster** project or your **BI Dashboard**, have you been using LCEL to build these pipelines, or are you still relying on more manual function calls to handle your agentic steps?
+
 ---
 
 ### 2. Why LCEL Gives `.invoke()` AND `.ainvoke()` on Every Runnable (Not Just Async)

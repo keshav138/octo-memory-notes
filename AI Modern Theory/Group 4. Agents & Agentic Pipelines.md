@@ -7,6 +7,43 @@
 **Likely mock angle**: "Why would an agent need episodic memory vs just context window?" — context window is bounded and lost after a session ends; episodic memory persists across sessions and can be selectively retrieved.
 
 ---
+### 1.1 Context Window
+The "context memory" of a Large Language Model (LLM) is fundamentally different from human memory or traditional database storage. Because LLMs are **stateless algorithms**, they don't "remember" past interactions in the way a person remembers a conversation [1.2.3]. Instead, they rely on a finite **context window** to process information [1.1.1, 1.2.3].
+
+#### 1. How It Works: The "Stateless" Reality
+
+Every time you send a message to an LLM, it doesn't just "recall" your previous messages. Instead, the entire conversation—all your previous prompts and the model’s previous responses—is re-sent to the model as a single, massive input block [1.2.3].
+
+- **Recomputation:** For every single new token the model generates, it effectively re-reads the _entire_ conversation history from the very beginning [1.2.3].
+    
+- **The Context Window:** This is the hard limit on the number of tokens (words or parts of words) a model can "see" at once [1.2.1, 1.3.1]. If your conversation grows longer than this limit, the model will naturally "forget" the oldest parts of the history because they are dropped from the input to make room for new text [1.2.3].
+    
+
+#### 2. The Gap: Advertised vs. Effective Context
+
+As of 2026, many models advertise massive context windows (ranging from 1 million to 10 million tokens) [1.4.1, 1.4.2]. However, there is a critical distinction between **advertised capacity** and **effective usage** [1.3.1, 1.4.3]:
+
+- **Context Rot:** Even if a model _can_ technically hold 1 million tokens, accuracy often degrades as the prompt gets longer [1.3.1, 1.4.3]. Models frequently struggle to recall information buried in the middle of a massive context window—a phenomenon known as "context rot" [1.3.1].
+    
+- **Effective Context Window (MECW):** Benchmarks like _RULER_ show that most models reliably use only **50% to 70%** of their advertised capacity for complex tasks like multi-key retrieval or deep reasoning [1.4.3].
+    
+
+#### 3. Engineering "Memory"
+
+Since models are stateless, developers must use "context engineering" to simulate long-term memory [1.2.3]:
+
+|**Strategy**|**How it works**|**Best for**|
+|---|---|---|
+|**Sliding Window**|Only keeps the most recent $N$ messages, dropping older ones [1.2.1].|Standard chatbots, short tasks.|
+|**Summarization**|Compresses older parts of the conversation into a running summary [1.2.1, 1.2.3].|Long, multi-turn conversations.|
+|**Scratchpad/State**|Instructs the model to write down key facts, user preferences, or tasks into a persistent "notes" file [1.2.3].|Complex, multi-step projects.|
+|**RAG (Retrieval-Augmented Generation)**|Stores conversation history or documents in an external database and selectively pulls relevant snippets back into the window [1.2.1, 1.3.1].|Large document analysis, massive codebases.|
+
+#### Summary
+
+Think of the **context window** as the model's "desk space." It can only work with what is currently on the desk. To have "long-term memory," you must act as the librarian—constantly swapping out old files, summarizing past documents, or retrieving only the most relevant pages from a library (the vector database) to keep the desk from getting too cluttered for the model to think clearly.
+
+---
 
 ### 2. Agentic Pipeline Step Removal — Consequences
 
@@ -30,6 +67,60 @@ Common agentic loop failure modes:
 
 Mitigations: max iteration caps, explicit stopping criteria, self-consistency checks, human-in-the-loop checkpoints.
 
+#### Solutions
+To address common agentic loop failure modes, it is essential to shift from relying solely on an agent's probabilistic reasoning to implementing **deterministic, auditable system controls**. Below are the solutions for each failure mode.
+
+### 1. Infinite Loops
+
+Agents get stuck when they misinterpret task completion or get trapped in repetitive tool calling.
+
+- **Loop Guardrails (External Enforcement):** Do not let the agent decide when to stop. The system should enforce **Maximum Iteration Limits** (e.g., max 25 turns) and **Maximum Execution Time** [1.2.2].
+    
+- **Repetitive Output Detection:** Maintain a sliding window of recent actions. If the agent calls the same tool or generates semantically similar outputs X times, trigger a hard termination [1.2.2].
+    
+- **Semantic Completion Checks:** Implement external validation logic that checks if the task is actually finished, rather than relying on the agent's internal "TERMINATE" signal [1.2.2].
+    
+
+### 2. Tool Misuse
+
+Agents may select the wrong tool or use malformed arguments.
+
+- **Tool-Level Validation:** Build a robust tool layer (e.g., via MCP servers) that performs parameter validation, idempotency checks, and rate limiting before the tool is ever executed [1.1.1].
+    
+- **Tiered Access:** Separate tools into tiers (Read, Write, Delete). Only provide the agent with the minimum privileges required for the specific task [1.2.1].
+    
+- **Parameter/Prompt Validation:** Enforce strict schemas (e.g., using Pydantic or similar) for tool arguments to ensure they are well-formed before reaching the tool [1.1.1, 1.3.1].
+    
+
+### 3. State Drift
+
+Agents "forget" the goal or drift away from it during long-running tasks.
+
+- **Explicit State Checkpointing:** Periodically force the agent to summarize its current understanding of the goal, progress, and tasks. Compare this summary against the original objective to detect divergence [1.4.1].
+    
+- **External Task State:** Maintain the "source of truth" for the task in an external database, not just the agent’s internal chat history [1.4.1].
+    
+- **Context Compression:** Use strategic summarization or offloading of large tool inputs/results to the filesystem to prevent the context window from becoming saturated with stale or irrelevant data [1.4.2].
+    
+
+### 4. Premature Termination
+
+Agents may claim a task is "done" before it is truly complete.
+
+- **Hierarchical Task Decomposition:** Break complex goals into subtasks with clear, predefined success criteria. Use validation gates between subtasks to ensure each one is actually finished before moving on [1.4.1].
+    
+- **Verification Gates:** Implement "truth gates" where the system—not the model—validates if the output satisfies the required constraints before finalizing the task [1.6.1].
+    
+
+### 5. Cascading Errors
+
+Early mistakes "poison" the agent's memory, leading it to build on false premises.
+
+- **Separate Reasoning from Truth:** Treat model outputs as _proposals_, not facts. Use a "system-decides" model where the system validates claims against authoritative sources (RAG/databases) before they are treated as truth [1.6.1].
+    
+- **Micro-Verifications:** Insert lightweight checks between reasoning steps (e.g., checking if a status field is valid) to catch errors before they propagate to the next step [1.6.1].
+    
+- **Short Planning Horizons:** Instead of asking the agent to plan 10 steps ahead, force it to solve in small increments and re-ground the agent after every decision using external state rather than just its own memory [1.6.1].
 ---
 
 ### 4. Multi-Agent Review Chain — Quality Plateau After Time
