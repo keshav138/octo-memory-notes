@@ -37,6 +37,39 @@ This precision/recall split is the standard way to isolate which pipeline stage 
 - "Zero overlap" = the retrieved context has **no overlap** with the information actually needed to answer the query (retrieval failure).
 - **Consequence**: The generator has no grounding material, so it either (a) hallucinates an answer entirely from parametric knowledge, or (b) if instructed to stay strict to context, refuses/says "I don't know." Either way, the RAG pipeline is not functioning as retrieval-augmented — it degrades to a base LLM (worse, since it may still falsely cite the irrelevant retrieved context as if it were the source).
 
+In RAG (Retrieval-Augmented Generation), **overlap** (often called "chunk overlap") is a deliberate technique where you repeat a small slice of content at the end of one chunk and the beginning of the next 
+
+Think of it as a safety net for your data  When you split a large document into smaller, searchable pieces (chunks), there is a high risk that you will cut a sentence, a definition, or a critical idea exactly in half .
+
+### Why Overlap is Used
+
+- **Preserving Context at Boundaries:** If an important piece of information spans across the split point (e.g., a sentence that starts in one chunk and ends in another), overlap ensures that the full sentence or idea appears intact in at least one of the two chunks .
+    
+- **Improving Retrieval Accuracy:** A search engine relies on "semantic fingerprints" \. If a chunk is cut in half, it might be incomplete and "uninterpretable" to the model, causing it to rank lower in search results ]. Overlap provides enough surrounding text to keep the meaning clear.
+    
+- **Preventing "Broken" Fragments:** Without overlap, a retrieval system might return a fragment that is too small to be useful (e.g., a "troubleshooting step" without the preceding "warning" or "prerequisite") 
+    
+
+### The Trade-offs
+
+While overlap is essential, it is not "free":
+
+- **Redundancy:** Too much overlap creates near-duplicate chunks . This can flood your search results with similar variations of the same paragraph, wasting space and reducing the "diversity" of the information retrieved .
+    
+- **Computational Cost:** More overlap means more tokens to embed and process, which increases both storage requirements and processing time .
+    
+- **Not a "Fix-All":** Overlap is a mechanical patch . If your chunks are fundamentally the wrong size or if you are splitting complex structures like tables and code blocks, a 10–20% overlap may not be enough to save the context ].
+    
+
+### Best Practices
+
+- **Start with 10–20%:** A common industry baseline is to set your overlap to about 10–20% of your total chunk size.
+    
+- **Test and Iterate:** If your "Hit Rate" is low, try adjusting your chunk size first—it is usually the more impactful lever . Only then fine-tune your overlap to catch the remaining boundary issues .
+    
+- **Consider Alternatives:** For structured data like tables or deeply nested policy documents, fixed-size chunking with overlap often fails . In those cases, you might explore "Sentence Window" retrieval or agentic chunking, which are designed to keep logical units together rather than relying on mechanical overlaps .
+    
+
 ---
 
 ### 5. ROUGE-L vs "Humanization" Score
