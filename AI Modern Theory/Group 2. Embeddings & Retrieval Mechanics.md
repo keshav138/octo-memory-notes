@@ -5,10 +5,13 @@
 - **Practical use**: Bi-encoder for first-stage retrieval (fast, scales to millions of docs), cross-encoder for **re-ranking** the top-k candidates (slow but precise).
 
 **Likely mock angle**: "Why not use cross-encoder for retrieval directly?" — no precomputation possible, O(n) forward passes per query against every document = infeasible at scale.
+[[Bi-Encoder & Cross Encoder]]
 
 ---
 
 ### 2. Dense Vector Retriever vs BM25
+
+[[Dense Vector Retriever vs BM25]]
 
 ||BM25|Dense Retriever|
 |---|---|---|
@@ -29,9 +32,12 @@
 
 **This directly answers your later topic**: "vector store lacks surrounding context — LlamaIndex fix" → sentence window retrieval is the fix.
 
+[[Sentence Window Retrieval]]
+
 ---
 
 ### 4. HyDE (Hypothetical Document Embeddings)
+[[HyDE Hypothetical Document Embeddings]]
 
 - **How it works**: Instead of embedding the raw query, an LLM first generates a **hypothetical answer/document** to the query, and _that_ hypothetical document is embedded and used for retrieval (matching document-to-document semantics rather than query-to-document).
 - **Why it helps normally**: Queries are often short/underspecified; a hypothetical answer is closer in style/content to what's actually in the corpus, improving retrieval match.
@@ -40,5 +46,3 @@
 **Likely mock angle**: "When would you avoid HyDE?" — anything requiring current/fast-changing facts, since it relies on the LLM's stale internal knowledge to construct the retrieval query.
 
 ---
-
-Next up: **Group 3 — RAG Evaluation & Failure Diagnosis**. Want me to continue?

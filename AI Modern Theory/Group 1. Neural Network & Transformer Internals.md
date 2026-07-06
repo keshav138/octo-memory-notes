@@ -16,6 +16,7 @@
 |Softmax|sums to 1|Output layer for multi-class|Used in attention & classification|
 
 **Likely mock-test angle:** "Why GELU over ReLU in transformers?" — GELU weights inputs by their magnitude probabilistically (via the Gaussian CDF) rather than hard-gating at 0, giving smoother gradients — empirically better for deep transformer stacks.
+[[GELU over RELU]]
 
 ---
 
@@ -39,6 +40,8 @@
 - **Intuition**: early layers build general/broad contextual representations (syntax, local structure), later layers refine toward task-specific, high-level semantic focus.
 
 **Likely mock-test framing:** "Why does entropy differ between layer 1 and layer 11, and what does it tell you about what each layer is doing?" — answer along the above lines: progression from broad/syntactic to narrow/semantic attention.
+
+[[Attention Entropy]]
 
 ---
 

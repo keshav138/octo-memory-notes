@@ -1,5 +1,7 @@
 ## MULTI-LAYER PERCEPTRON (MLP) / NEURAL NETWORKS
 
+A neural network is layers of linear transformations (`Wx + b`) interleaved with non-linear activation functions. Without non-linearity, stacking layers collapses into one linear function — activations are what let NNs approximate non-linear boundaries.
+
 **Definition:** A supervised learning algorithm that learns a function by training on a dataset, consisting of multiple layers of nodes (neurons) where each layer is fully connected to the next. Also called Feed-Forward Neural Network or Deep Neural Network (when many layers). Uses backpropagation and gradient descent to learn weights that minimize prediction error.
 
 **Used For:**
