@@ -215,7 +215,7 @@ Total parameters: (5×4 + 5) + (3×5 + 3) = 43 parameters
 **Classification (Cross-Entropy):**
 
 **Binary Classification:**
-
+`LOG LOSS`
 ```
 Loss = -[y log(ŷ) + (1-y) log(1-ŷ)]
 

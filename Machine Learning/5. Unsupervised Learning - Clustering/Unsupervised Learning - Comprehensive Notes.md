@@ -1,5 +1,3 @@
-# Unsupervised Learning - Comprehensive Notes
-
 ## 1. K-Means Clustering
 
 ### Intuition
