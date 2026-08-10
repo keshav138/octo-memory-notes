@@ -1,0 +1,566 @@
+# Machine Learning Interview Questions and Answers
+
+> Machine Learning Interview Questions and Answers - Your Cheat Sheet For Machine Learning Interview
+> 
+> These interview questions and answers are helpful for roles such as:
+> - AI Engineer
+> - Gen AI Engineer
+> - MLOps Engineer
+> - Machine Learning Engineer
+> - Data Scientist
+> - Deep Learning Engineer
+
+## Table of Contents
+
+* [AI Engineering](#ai-engineering)
+* [Fundamentals of Machine Learning](#fundamentals-of-machine-learning)
+* [Algorithms](#algorithms)
+* [Data Preprocessing and Feature Engineering](#data-preprocessing-and-feature-engineering)
+* [Optimization](#optimization)
+* [Deep Learning](#deep-learning)
+* [NLP](#nlp)
+* [Computer Vision](#computer-vision)
+* [Large Language Model](#large-language-model)
+* [Model Evaluation](#model-evaluation)
+* [System Design and MLOps](#system-design-and-mlops)
+* [Probability and Statistics](#probability-and-statistics)
+* [Coding](#coding)
+* [Maths](#maths)
+* [Behavioral and Scenario-Based Questions](#behavioral-and-scenario-based-questions)
+
+### Prepared and maintained by the **Founder** of [Outcome School](https://outcomeschool.com): Amit Shekhar
+
+### Follow Amit Shekhar
+
+- [X/Twitter](https://twitter.com/amitiitbhu)
+- [LinkedIn](https://www.linkedin.com/in/amit-shekhar-iitbhu)
+- [GitHub](https://github.com/amitshekhariitbhu)
+
+### Follow Outcome School
+
+- [YouTube](https://youtube.com/@OutcomeSchool)
+- [X/Twitter](https://x.com/outcome_school)
+- [LinkedIn](https://www.linkedin.com/company/outcomeschool)
+- [GitHub](http://github.com/OutcomeSchool)
+
+## I teach at Outcome School
+
+- [AI and Machine Learning](https://outcomeschool.com/program/ai-and-machine-learning)
+
+Join Outcome School and get a high-paying tech job: [Outcome School](https://outcomeschool.com)
+
+---
+
+> **Note: We will keep updating this with new questions and answers.**
+
+---
+
+### AI Engineering
+
+- LLM
+- RAG
+- MCP
+- Agent
+- Fine-tuning
+- Quantization
+
+Learn about the LLM, RAG, MCP, Agent, Fine-tuning & Quantization: [AI Engineering Explained: LLM, RAG, MCP, Agent, Fine-Tuning, Quantization](https://www.youtube.com/watch?v=lnfWvX66FUk)
+
+For all AI Engineering Interview – Questions and Answers: Refer to [AI Engineering Interview Questions and Answers](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions)
+
+### Fundamentals of Machine Learning
+
+- Explain Epoch, Batch, Batch Size, and Iteration.
+    - Answer: [Epoch, Batch, Batch Size, Iteration](https://www.youtube.com/watch?v=NFLlXE-6vno)
+- What are embeddings in Machine Learning?
+    - Answer: [Embeddings in Machine Learning](https://www.youtube.com/watch?v=LedXW6xl21s)
+- What is Softmax Activation Function?
+    - Answer: [Softmax Activation Function in Machine Learning](https://www.youtube.com/watch?v=2Zx6x01WwWM)
+- What is Machine Learning?
+    - Answer: [What is Machine Learning?](https://outcomeschool.com/blog/machine-learning)
+- Differentiate between Supervised and Unsupervised Learning.
+    - Answer: [Supervised vs Unsupervised Learning](https://outcomeschool.com/blog/supervised-vs-unsupervised-learning)
+- What is Reinforcement Learning?
+    - Answer: [What is Reinforcement Learning?](https://outcomeschool.com/blog/reinforcement-learning)
+- What is Bias?
+    - Answer: [What is Bias?](https://outcomeschool.com/blog/bias-in-artificial-neural-network)
+- What is the difference between Classification and Regression?
+    - Answer: [Classification Vs Regression](https://www.linkedin.com/posts/outcomeschool_machinelearning-ai-activity-7372849348117835776-BWGL)
+- Explain Overfitting and Underfitting. How can you prevent them?
+    - Answer: [Overfitting and Underfitting](https://www.linkedin.com/posts/outcomeschool_machinelearning-datascience-deeplearning-activity-7372237032145936384-gItd)
+- What Are L1 and L2 Loss Functions?
+    - Answer: [What Are L1 and L2 Loss Functions?](https://outcomeschool.com/blog/l1-and-l2-loss-functions)
+- What is Regularization? Explain L1 (Lasso) and L2 (Ridge) regularization.
+    - Answer: [Regularization In Machine Learning](https://outcomeschool.com/blog/regularization-in-machine-learning)
+- What are Loss Functions and Cost Functions? Explain the key difference between them.
+    - Answer: [Loss functions and Cost functions in Machine Learning](https://x.com/amitiitbhu/status/1925471830640664925)
+- What are dropouts?
+    - Answer: [Dropout in Neural Networks](https://outcomeschool.com/blog/dropout-in-neural-networks)
+- What is a Perceptron?
+    - Answer: [Perceptron in Machine Learning](https://x.com/amitiitbhu/status/2011100039545078038)
+- Explain Multilayer Perception (MLP).
+    - Answer: [Understanding Multilayer Perceptron (MLP) Neural Network](https://www.linkedin.com/posts/amit-shekhar-iitbhu_machinelearning-deeplearning-neuralnetwork-activity-7331528906673401857-bpqL)
+- What is Cross-Entropy?
+    - Answer: [Math Behind Cross-Entropy Loss](https://outcomeschool.com/blog/math-behind-cross-entropy-loss)
+- What are Logits?
+    - Answer: [Understanding Logits in Machine Learning](https://x.com/amitiitbhu/status/1927927814923207146)
+- Explain Cross-Validation. Why is it used?
+    - Answer: [Understanding Cross-Validation in Machine Learning](https://x.com/amitiitbhu/status/1939929240084128137)
+- What are precision, recall, and F1-score?
+- What is anomaly detection?
+- What is the difference between policy-based and value-based methods?
+- What is Q-Learning?
+- Explain the concept of exploration vs exploitation.
+- Explain the curse of dimensionality and how to address it.
+- Explain Local Loss, Focal Loss, and Gradient Blending in the context of Multi-Task Learning.
+- Explain Contrastive Learning
+    - Answer: [Contrastive Learning](https://outcomeschool.com/blog/contrastive-learning)
+
+### Algorithms
+
+- How does a Decision Tree algorithm work?
+- Explain how Decision Trees make splits and handle categorical features.
+- How does the Random Forest algorithm work? How does it improve over Decision Trees? How does it reduce variance?
+- Explain Ensemble Methods. Why are they powerful?
+- What is the difference between bagging and boosting?
+- What is Gradient Boosting? How does XGBoost work?
+- What are the key hyperparameters for XGBoost?
+- Explain Gradient Boosting and its advantages over Random Forests.
+- Explain how Logistic Regression differs from Linear Regression.
+    - Answer: [Linear Regression vs Logistic Regression](https://outcomeschool.com/blog/linear-regression-vs-logistic-regression)
+- How does logistic regression work?
+- Explain R-squared and adjusted R-squared.
+- How do you check for multicollinearity in regression models?
+- How does K-Nearest Neighbors (KNN) work?
+- Explain K-Means Clustering. How does it work? Limitations?
+- Explain Support Vector Machines (SVM). What is the kernel trick?
+- What is the decision boundary in classifiers?
+- Explain Naive Bayes.
+- What is Dimensionality Reduction?
+- Explain PCA (Principal Component Analysis). How does it work? When would you use it?
+- Explain Gradient Descent and its variants.
+    - Answer: [Math Behind Gradient Descent](https://outcomeschool.com/blog/math-behind-gradient-descent)
+- What is the ROC-AUC curve, and how is it interpreted?
+
+### Data Preprocessing and Feature Engineering
+
+- What is Feature Engineering?
+   - Answer: [Feature Engineering in Machine Learning](https://www.youtube.com/watch?v=QLlywrWuXag)
+- What is one-hot encoding? When should you use it?
+    - Answer: [One-hot Encoding in Machine Learning](https://www.youtube.com/watch?v=6AmedU5i9go)
+- How do you deal with missing data?
+- How do you handle Outliers?
+- Explain Feature Scaling. Why is it needed?
+- One-Hot, Label, Target, and K-Fold Target Encoding
+- How do you handle Categorical Features?
+- Explain Feature selection vs feature extraction.
+- How would you create new features from existing ones?
+- How do you approach a dataset with highly imbalanced classes?
+- How do you select features for a model?
+- Why and how do you split data into a train, test, and validation set?
+
+### Optimization
+
+- What is gradient descent? How does it work?
+    - Answer: [Math Behind Gradient Descent](https://outcomeschool.com/blog/math-behind-gradient-descent)
+- What is stochastic gradient descent (SGD)?
+    - Answer: [Math Behind Gradient Descent](https://outcomeschool.com/blog/math-behind-gradient-descent)
+- What are vanishing gradients?
+- What is a learning rate? How to choose a good one?
+    - Answer: [Learning Rate](https://www.linkedin.com/posts/amit-shekhar-iitbhu_ml-ai-activity-7438148910260404224-0bxL)
+- How does the learning rate affect model training?
+    - Answer: [Learning Rate](https://www.linkedin.com/posts/amit-shekhar-iitbhu_ml-ai-activity-7438148910260404224-0bxL)
+- How do you approach hyperparameter tuning?
+- What is model quantization, and when would you use it?
+    - Answer: [Quantization](https://outcomeschool.com/blog/how-does-model-quantization-work)
+- How do you ensure fairness and reduce bias in ML models?
+- Explain Grid Search vs Random Search vs Bayesian Optimization.
+- Explain TPE hyperparameter optimization. 
+- Explain Bayesian Optimization.
+- Explain Adam Optimizer.
+- Explain the RMSprop Optimizer.
+- What is Adagrad Optimizer?
+
+### Deep Learning
+
+- What are neural networks?
+- Explain the Feedforward Neural Network.
+    - Answer: [Feed-Forward Networks in LLMs](https://outcomeschool.com/blog/feed-forward-networks-in-llms)
+- What are forward propagation and backward propagation?
+    - Answer: [Math Behind Backpropagation](https://outcomeschool.com/blog/math-behind-backpropagation)
+- What is backpropagation?
+    - Answer: [Math Behind Backpropagation](https://outcomeschool.com/blog/math-behind-backpropagation)
+- Can you name and explain a few hyperparameters used for training a neural network?
+- What is the advantage of deep learning over traditional machine learning?
+- What are activation functions, and why are they used?
+- Explain Sigmoid, Tanh, ReLU, LeakyReLU, and Softmax activation functions with their pros and cons.
+- Why are Sigmoid and Tanh not preferred in the hidden layers of a neural network?
+- What is dropout, and why is it effective?
+    - Answer: [Dropout in Neural Networks](https://outcomeschool.com/blog/dropout-in-neural-networks)
+- What is the effect of dropout on training and inference speed?
+    - Answer: [Dropout in Neural Networks](https://outcomeschool.com/blog/dropout-in-neural-networks)
+- What is L1/L2 regularization, and how does it affect a neural network?
+   - Answer: [Regularization In Machine Learning](https://outcomeschool.com/blog/regularization-in-machine-learning)
+- What is batch normalization, and why is it used?
+   - Answer: [Batch Normalization vs Layer Normalization](https://outcomeschool.com/blog/batch-normalization-vs-layer-normalization)
+- What are the hyperparameters for batch normalization that can be optimized?
+- What is parameter sharing in deep learning?
+- What is representation learning, and why is it useful?
+- What is a generative model, and how does it differ from a discriminative model?
+- Can you explain how a generative model works?
+- Explain Encoder-Decoder Architecture.
+    - Answer: [Decoding Transformer Architecture](https://outcomeschool.com/blog/decoding-transformer-architecture)
+- What is Latent Space?
+- What are autoencoders? Explain their layers and practical uses.
+- What is a Variational Autoencoder (VAE), and how is it different from a traditional autoencoder?
+    - Answer: [Variational Autoencoders](https://outcomeschool.com/blog/variational-autoencoders)
+- How does VAE impose a probabilistic structure on the latent space, and why is that important?
+- What is the architecture of a Generative Adversarial Network (GAN)?
+    - Answer: [Generative Adversarial Networks (GANs)](https://outcomeschool.com/blog/generative-adversarial-networks)
+- What are the roles of the generator and discriminator in a GAN?
+    - Answer: [Generative Adversarial Networks (GANs)](https://outcomeschool.com/blog/generative-adversarial-networks)
+- What is mode collapse in GANs, and how can it be mitigated?
+    - Answer: [Generative Adversarial Networks (GANs)](https://outcomeschool.com/blog/generative-adversarial-networks)
+- How are GANs used in image synthesis or image-to-image translation tasks?
+- Explain Convolutional Neural Networks (CNN).
+- Explain filters in CNN.
+- Explain the stride in CNN.
+- Explain padding in CNN.
+- Explain pooling in CNN.
+- Explain fully connected layers in CNN.
+- What is a Recurrent Neural Network (RNN)?
+   - Answer: [Recurrent Neural Network](https://outcomeschool.com/blog/recurrent-neural-network)
+- What are the limitations of RNNs, and how are they solved?
+- What are LSTM and GRU? How do they solve long-term dependency issues?
+- What are the main gates in LSTM and their roles?
+- How to identify exploding gradient issues in your model?
+- What is a Transformer architecture, and what makes it different from CNNs and RNNs?
+    - Answer: [Decoding Transformer Architecture](https://outcomeschool.com/blog/decoding-transformer-architecture)
+- What is the Attention mechanism in deep learning, and why is it significant?
+- What is the basic difference between LSTM and Transformers?
+- Diffusion Models
+    - Answer: [Diffusion Models](https://outcomeschool.com/blog/diffusion-models)
+- Why does Diffusion work better than Auto-Regression?
+- Explain transfer learning and when to use it.
+- What are Multimodal AI models, and how do they process different types of data?
+    - Answer: [Multimodal AI](https://outcomeschool.com/blog/multimodal-ai)
+- How do World Models work?
+    - Answer: [How do World Models work?](https://outcomeschool.com/blog/how-do-world-models-work)
+- How do Diffusion Language Models (DLMs) work?
+    - Answer: [How do Diffusion Language Models (DLMs) work?](https://outcomeschool.com/blog/how-do-diffusion-language-models-dlms-work)
+
+### NLP
+
+- What are the advantages of Transformers over traditional sequence-to-sequence models?
+    - Answer: [Decoding Transformer Architecture](https://outcomeschool.com/blog/decoding-transformer-architecture)
+- What are the limitations of Transformers, and how can they be addressed?
+- What is BERT, and how does it improve language understanding?
+- How are Transformers trained (pre-training and fine-tuning)?
+- Explain transfer learning in the context of Transformers.
+- Describe the process of text generation using Transformer-based language models.
+    - Answer: [Decoding Transformer Architecture](https://outcomeschool.com/blog/decoding-transformer-architecture)
+- What are Seq2Seq models?
+- Compare N-gram models and deep learning models (trade-offs).
+- What is the n-gram model?
+- What is TF-IDF, and how does it differ from word embeddings?
+- What is Bag-of-Words?
+- What is perplexity used for in NLP?
+- What is stemming vs lemmatization?
+- What is Latent Semantic Indexing (LSI)?
+- What is dependency parsing?
+- What are some approaches for text summarization?
+- What are word embeddings?
+- What is Word2Vec?
+- What is t-SNE, and how is it used for NLP?
+
+### Computer Vision
+
+- What is computer vision, and why is it important?
+- What is image segmentation, and what are its applications?
+- What is object detection, and how does it differ from image classification?
+- What are the steps to build an image recognition system?
+- What are the challenges in real-time object tracking?
+- What is feature extraction in computer vision?
+- What is OCR, and what are its main applications?
+- How does CNN differ from traditional neural networks in computer vision?
+- What is data augmentation, and what techniques are commonly used?
+- What are some popular deep learning frameworks for computer vision?
+- How can Transformers be used for computer vision tasks?
+
+### Large Language Model
+
+- What is a Large Language Model (LLM), and how does it work?
+    - Answer: Explained in this video: [AI Engineering Explained: LLM, RAG, MCP, Agent, Fine-Tuning, Quantization](https://www.youtube.com/watch?v=lnfWvX66FUk)
+- What is the Transformer architecture and how does it work?
+    - Answer: [Decoding Transformer Architecture](https://outcomeschool.com/blog/decoding-transformer-architecture)
+- What are the key components of the Transformer architecture?
+    - Answer: [Decoding Transformer Architecture](https://outcomeschool.com/blog/decoding-transformer-architecture)
+- What Each Transformer Block Learns?
+    - Answer: [Decoding Transformer Architecture](https://outcomeschool.com/blog/decoding-transformer-architecture)
+- Why do we scale the dot product attention by √dₖ in the Transformer architecture?
+    - Answer: [Math behind √dₖ Scaling Factor in Attention](https://outcomeschool.com/blog/scaling-dot-product-attention)
+- KV Cache in LLMs
+    - Answer: [KV Cache in LLMs](https://outcomeschool.com/blog/kv-cache-in-llms)
+- Paged Attention in LLMs
+    - Answer: [Paged Attention in LLMs](https://outcomeschool.com/blog/paged-attention-in-llms)
+- What is Flash Attention?
+    - Answer: [Decoding Flash Attention in LLMs](https://outcomeschool.com/blog/decoding-flash-attention)
+- What is speculative decoding, and how does it speed up inference?
+    - Answer: [Speculative Decoding](https://outcomeschool.com/blog/speculative-decoding)
+- How does continuous batching improve LLM inference throughput?
+    - Answer: [Continuous Batching in LLMs](https://outcomeschool.com/blog/continuous-batching-in-llms)
+- What is pre-training vs fine-tuning in LLMs?
+- What are some challenges in training LLMs?
+- What is zero-shot learning in the context of LLMs?
+- How do you handle bias and fairness in LLMs?
+- What are some real-world applications of LLMs in business and tech?
+- How does the Transformer architecture improve LLM performance over RNNs?
+    - Answer: [Decoding Transformer Architecture](https://outcomeschool.com/blog/decoding-transformer-architecture)
+- Explain the Query(Q), Key(K), and Value(V) in attention.
+    - Answer: [Math behind Attention - Q, K, and V](https://outcomeschool.com/blog/math-behind-attention-qkv)
+- What is self-attention, and how does it work in Transformers?
+    - Answer: [Self Attention in Transformers](https://outcomeschool.com/blog/self-attention-in-transformers)
+- What is Cross Attention in Transformers?
+    - Answer: [Cross Attention in Transformers](https://outcomeschool.com/blog/cross-attention-in-transformers)
+- What are multi-head attention mechanisms? Why use multiple attention heads?
+    - Answer: [Multi-Head Attention in Transformers](https://outcomeschool.com/blog/multi-head-attention-in-transformers)
+- How does attention help capture long-range dependencies?
+    - Answer: [Decoding Transformer Architecture](https://outcomeschool.com/blog/decoding-transformer-architecture) and [Math behind Attention - Q, K, and V](https://outcomeschool.com/blog/math-behind-attention-qkv)
+- What is Grouped-Query Attention (GQA), and how does it differ from Multi-Head Attention (MHA)?
+    - Answer: [Grouped Query Attention](https://outcomeschool.com/blog/grouped-query-attention)
+- What are Feed-Forward Networks in LLMs?
+    - Answer: [Feed-Forward Networks in LLMs](https://outcomeschool.com/blog/feed-forward-networks-in-llms)
+- Tokenization in Large Language Models (LLMs).
+    - Answer: [Tokenization in Large Language Models (LLMs)](https://www.linkedin.com/posts/amit-shekhar-iitbhu_machinelearning-datascience-deeplearning-activity-7346774040784605186-ivoU)
+- What is subword tokenization?
+- What is BPE (Byte Pair Encoding) in LLMs?
+    - Answer: [BPE (Byte Pair Encoding) in LLMs](https://www.linkedin.com/posts/pallavi-shekhar_ai-llm-machinelearning-activity-7439218251714166784-XA4O)
+- What is positional embedding in LLMs?
+    - Answer: [Understanding Positional Embedding in LLMs](https://www.linkedin.com/posts/amit-shekhar-iitbhu_machinelearning-datascience-deeplearning-activity-7347119540482265089-cTT1)
+- What is temperature in the context of LLMs?
+    - Answer: [What is temperature in the context of LLMs?](https://x.com/amitiitbhu/status/1964990603927687493)
+- What is causal masking?
+    - Answer: [Causal Masking in Attention](https://outcomeschool.com/blog/causal-masking-in-attention)
+- What are skip connections?
+    - Answer: [What residual (skip) connections do in Transformers](https://x.com/amitiitbhu/status/2008473617806553142)
+- How does Rotary Position Embedding (RoPE) work, and why is it preferred over learned positional embeddings?
+    - Answer: [Math Behind RoPE (Rotary Position Embedding)](https://outcomeschool.com/blog/math-behind-rope-rotary-position-embedding)
+- What is normalization?
+ - Explain RMSNorm (Root Mean Square Layer Normalization)
+    - Answer: [RMSNorm (Root Mean Square Layer Normalization)](https://outcomeschool.com/blog/rmsnorm-root-mean-square-layer-normalization)
+- What is dropout, and how is it applied in LLMs?
+    - Answer: [Dropout in Neural Networks](https://outcomeschool.com/blog/dropout-in-neural-networks)
+- Why does Attention use Softmax?
+    - Answer: [Why does Attention use Softmax?](https://x.com/amitiitbhu/status/2005495879571255670)
+- What does a vector database (Vector DB) store for LLM usage?
+- How do you improve inference speed in production LLM deployments?
+    - Answer: [LLM Inference Optimization](https://x.com/amitiitbhu/status/2054100147546837154)
+- What is the context window in LLM?
+    - Answer: [Context window in LLM](https://www.linkedin.com/posts/amit-shekhar-iitbhu_the-context-window-is-the-llms-working-memory-activity-7437754426175672320-MH9c/)
+- Why is the context window limited in LLMs?
+    - Answer: [Why is the context window limited in LLMs?](https://www.youtube.com/watch?v=CGIhxIaOg3M&lc)
+- Explain Prompting, Retrieval-Augmented Generation (RAG), and Fine-Tuning.
+   - Answer: [Prompting, RAG, and Fine-Tuning](https://outcomeschool.substack.com/p/prompting-vs-rag-vs-fine-tuning)
+- What is Mixture of Experts (MoE), and how does it work in models like Mixtral?
+    - Answer: [Mixture of Experts Explained](https://outcomeschool.com/blog/mixture-of-experts)
+- What is the difference between dense and sparse models?
+    - Answer: [Mixture of Experts Explained](https://outcomeschool.com/blog/mixture-of-experts)
+- Transformers work on text, so can they also understand images?
+    - Answer: [Decoding Vision Transformer (ViT)](https://outcomeschool.com/blog/decoding-vision-transformer-vit)
+- Small Language Models (SLMs)
+    - Answer: [Small Language Models (SLMs)](https://outcomeschool.com/blog/small-language-models-slms)
+- Large Reasoning Models (LRMs)
+    - Answer: [Large Reasoning Models (LRMs)](https://outcomeschool.com/blog/large-reasoning-models)
+- Reinforcement Learning from Human Feedback (RLHF)
+    - Answer: [Reinforcement Learning from Human Feedback (RLHF)](https://outcomeschool.com/blog/reinforcement-learning-from-human-feedback-rlhf)
+- Proximal Policy Optimization (PPO)
+    - Answer: [Proximal Policy Optimization (PPO)](https://outcomeschool.com/blog/proximal-policy-optimization-ppo)
+- Direct Preference Optimization (DPO)
+    - Answer: [Direct Preference Optimization (DPO)](https://outcomeschool.com/blog/direct-preference-optimization-dpo)
+- Group Relative Policy Optimization (GRPO)
+    - Answer: [Group Relative Policy Optimization (GRPO)](https://outcomeschool.com/blog/group-relative-policy-optimization-grpo)
+- Recursive Language Models (RLMs)
+    - Answer: [Recursive Language Models (RLMs)](https://outcomeschool.com/blog/recursive-language-models)
+- Continual Learning in LLMs
+    - Answer: [Continual Learning in LLMs](https://outcomeschool.com/blog/continual-learning-in-llms)
+- How does Knowledge Distillation work?
+    - Answer: [How does Knowledge Distillation work?](https://outcomeschool.com/blog/how-does-knowledge-distillation-work)
+- Prefill vs Decode
+    - Answer: [Prefill vs Decode: LLM Inference Optimization](https://outcomeschool.com/blog/prefill-vs-decode-llm-inference-optimization)
+
+### Model Evaluation
+
+- What are precision, recall, F1 score, and accuracy?
+- What is the confusion matrix, and how do you interpret it?
+    - Answer: [Confusion Matrix](https://www.linkedin.com/posts/pallavi-shekhar_ai-ml-activity-7438197172992606208-oEUc)
+- What are common evaluation metrics for Classification?
+- When would you use accuracy vs other metrics?
+- When would you use log loss vs accuracy?
+- What metrics would you use for a multi-class classification problem?
+- How do you handle class imbalance in classification metrics?
+- What is the ROC curve? What is AUC?
+- How do you handle imbalanced datasets?
+- What are common evaluation metrics for Regression?
+- What's the difference between MAE, MSE, and RMSE?
+- How do you choose the right evaluation metric for a given problem?
+- How do you compare the performance of different models?
+- Explain cross-validation and its importance.
+    - Answer: [Understanding Cross-Validation in Machine Learning](https://x.com/amitiitbhu/status/1939929240084128137)
+- What is Hyperparameter Tuning?
+- How do you evaluate unsupervised learning models?
+- How do you evaluate a clustering algorithm?
+- What metrics would you use for a recommendation system?
+- What is A/B testing in the context of ML?
+- LLM as a Judge
+    - Answer: [LLM as a Judge](https://outcomeschool.com/blog/llm-as-a-judge) 
+
+### System Design and MLOps
+
+- Design ChatGPT: Training to Serving (End to End)
+- Design a RAG System (Chat with Your Documents)
+- Design Memory for a Personal AI Assistant
+- Design a Deep Research Agent
+- Design a Multi-Agent Customer Support System
+- Design an On-Device AI Assistant
+- Design a Multimodal Search System (Text, Image, Video)
+- Design an LLM Inference Platform (vLLM-as-a-Service)
+- Design an LLM Evaluation Platform
+- Design a Text-to-Image Generation Service (Midjourney-like)
+- Design a Music Generation Service (Suno-like)
+- Design a Video Generation Service (Sora-like)
+- Design an AI Coding Agent.
+- Design a Machine Learning System for YouTube Video Recommendation.
+- Design a Machine Learning System for YouTube Video Search.
+- Design a Machine Learning System for Personalized Content Feed.
+- Design a Machine Learning System for Harmful Content Detection.
+- Design a Machine Learning System for Similar Listings on Airbnb.
+- Design a Machine Learning System for Replacement Product Recommendation.
+- Design a Machine Learning System for Event Recommendation.
+- Design a Machine Learning System for Multimodal Search.
+- Design a Machine Learning System for Ad Click Prediction.
+- Design a Machine Learning System to Estimate Delivery Time.
+- Design a Machine Learning System for Image Search.
+- Design a Machine Learning System for Friends Recommendation.
+- Design a Machine Learning Product Recommendation System for an e-commerce platform.
+- How would you build a system to detect fraudulent transactions?
+- Multimodal Fusion Techniques in Machine Learning: Early Fusion vs Late Fusion
+    - Answer: [Multimodal Fusion Techniques in Machine Learning: Early Fusion vs Late Fusion](https://www.linkedin.com/posts/amit-shekhar-iitbhu_machinelearning-ai-deeplearning-activity-7346410935332282368-hmoN/)
+- How would you approach a time series forecasting problem?
+- How would you build a spam detection system?
+- Describe how you would implement an image classification system.
+- What approach would you take for a sentiment analysis task?
+- How would you design a customer churn prediction model?
+- What would be your approach to ranking search results?
+    - Answer: [How does a Reranker work?](https://outcomeschool.com/blog/how-does-a-reranker-work)
+- How would you build a system to detect anomalies in network traffic?
+- How do you choose the right machine learning algorithm?
+- What is model drift, and how do you handle it?
+- How would you handle large-scale data for training?
+- How do you deal with noisy data in machine learning models?
+- What strategies would you use to optimize the training time for a deep learning model?
+- How do you deploy an ML model in production?
+- How do you monitor a model's performance in production?
+- How would you deploy a model with low-latency requirements?
+- What are the common challenges when deploying ML models?
+- Discuss scalability and latency requirements for ML systems.
+- How do you ensure your model is scalable and performs well with large datasets?
+- What is model explainability? Why is it important?
+- What techniques would you use to make a model more interpretable?
+- Describe your approach to debugging an underperforming ML model.
+- How do you ensure fairness and reduce bias in ML models?
+- Explain MLOps and its key components.
+- What is a feature store, and why is it important?
+- Cloud vs on-device Model Deployment.
+    - Answer: [Cloud vs On-Device Model Deployment](https://x.com/outcome_school/status/1965643330076991621)
+- Tell about the Model Compression Techniques.
+    - Answer: [Model Optimization](https://www.linkedin.com/posts/pallavi-shekhar_ai-machinelearning-modeloptimization-activity-7438824172996247552-x7Wt)
+
+### Probability and Statistics
+
+- Explain the Bias-Variance Tradeoff.
+- Explain different probability distributions (Normal, Binomial, Poisson, Uniform).
+- What is the normal distribution and its functions?
+- What is an exponential distribution?
+- What is the binomial distribution?
+- What is the Bernoulli distribution?
+- What is the multinomial distribution?
+- What is the lognormal distribution?
+- What is a logistic distribution?
+- What is the gamma distribution and its functions?
+- Poisson distribution and its function.
+- When would you use a Poisson distribution over a Binomial distribution?
+- What is the variance?
+- What is stddev?
+- Explain the difference between mean, median, and mode.
+- What is the difference between correlation and covariance?
+- What does a correlation coefficient of +1, 0, and -1 indicate?
+- Explain Correlation vs Causation.
+- What are Type I and Type II errors?
+- What is a p-value? What does statistical significance mean?
+- Explain p-values and their limitations.
+- What is hypothesis testing, and when is it used in ML?
+- What statistical tests would you use to compare two models?
+- How do you assess if a feature is statistically significant?
+- What is a confidence interval, and how is it used?
+- What are z-score and t-score? When do you use each?
+- Explain Bayes' Theorem. How is it relevant to Naive Bayes or Bayesian methods?
+- What's the difference between MLE and MAP estimation?
+- What is Maximum Likelihood Estimation (MLE)?
+- Explain the Bayesian vs Frequentist approach in statistics.
+- What is the Central Limit Theorem(CLT)? Why is it important?
+- What are sampling techniques?
+- What is the bootstrap method, and how is it used?
+
+### Coding
+
+- Write a Python function to compute the mean squared error (MSE).
+    - Answer: [Implement Mean Squared Error (MSE) cost function](https://github.com/amitshekhariitbhu/build-your-own-x-machine-learning/blob/main/tutorials/core-machine-learning-algorithms/mean-squared-error/mean_squared_error.py)
+- Write a Python function to compute the mean absolute error (MAE).
+    - Answer: [Implement Mean Absolute Error (MAE) cost function](https://github.com/amitshekhariitbhu/build-your-own-x-machine-learning/blob/main/tutorials/core-machine-learning-algorithms/mean-absolute-error/mean_absolute_error.py)
+- Implement a simple linear regression model from scratch.
+    - Answer: [Implement Linear Regression from scratch](https://github.com/amitshekhariitbhu/build-your-own-x-machine-learning/blob/main/tutorials/core-machine-learning-algorithms/linear-regression/linear_regression.py)
+- Implement a simple logistic regression model from scratch.
+    - Answer: [Implement Logistic Regression from scratch](https://github.com/amitshekhariitbhu/build-your-own-x-machine-learning/blob/main/tutorials/core-machine-learning-algorithms/logistic-regression/logistic_regression.py)
+- Implement K-Nearest Neighbors (KNN).
+    - Answer: [Implement K-Nearest Neighbors (KNN)](https://github.com/amitshekhariitbhu/build-your-own-x-machine-learning/blob/main/tutorials/core-machine-learning-algorithms/knn/knn.py)
+- Implement Sigmoid, Tanh, ReLU, LeakyReLU, and Softmax Activation Functions.
+    - Answer: [Implement Sigmoid, Tanh, ReLU, LeakyReLU, and Softmax Activation Functions](https://github.com/amitshekhariitbhu/build-your-own-x-machine-learning/blob/main/tutorials/core-machine-learning-algorithms/activation-functions/activation_functions.py)
+- How would you implement k-means clustering?
+- Write code to perform k-fold cross-validation.
+- How would you use Pandas to load and clean data?
+- Implement k-nearest neighbors (KNN) from scratch.
+- Write code to calculate precision and recall.
+
+### Maths
+
+- Eigenvalues and Eigenvectors
+    - Answer: [Understanding Eigenvalues and Eigenvectors](https://x.com/amitiitbhu/status/1955895389225160877)
+
+### Behavioral and Scenario-Based Questions
+
+- Describe a time you improved a model’s performance.
+- How would you approach a project with limited labeled data?
+- What would you do if a model performs well in testing but poorly in production?
+- How do you stay updated with ML advancements?
+- Tell me about a challenging ML project you worked on. What was the goal? What was your role? What challenges did you face? How did you overcome them? What was the outcome? What did you learn?
+- Where do you see ML/AI heading in the next 5 years?
+- Why are you interested in this role/company?
+- Describe a situation where your ML model failed or didn't perform as expected. What did you do?
+- How would you handle disagreements with colleagues about model choices or approaches?
+
+### License
+```
+   Copyright (C) 2026 Outcome School
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+```
