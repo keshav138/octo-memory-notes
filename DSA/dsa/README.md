@@ -28,6 +28,8 @@ differs meaningfully between the languages. Otherwise a single language-agnostic
 | 16 | [16-bit-manipulation.md](16-bit-manipulation.md) | XOR tricks, bit counts, power of two, subsets via bits |
 | 17 | [17-dynamic-programming.md](17-dynamic-programming.md) | Memo-first DP, 0/1 knapsack, LCS, LIS, edit distance, stock, coins |
 | 18 | [18-advanced-design.md](18-advanced-design.md) | Union-Find, segment tree, LRU/LFU, iterator, data stream |
+| — | [cpp-to-python-cheatsheet.md](cpp-to-python-cheatsheet.md) | C++ → Python cheatsheet (idioms, syntax, built-ins) |
+| — | [python-one-liners.md](python-one-liners.md) | One-line Python: map, lambda, zip, functools, itertools |
 
 ## How to use
 
