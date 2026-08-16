@@ -1,6 +1,4 @@
-- Prefers approach/pattern explanations plus key formulas over full code in algorithm reference material. Confidence: 0.9
-- Prefers C++ and Python variants shown only where the implementation differs meaningfully between the languages. Confidence: 0.9
-- Prefers memoization-first (top-down) dynamic programming, using tabulation only when it is clearly the better choice. Confidence: 0.9
-- Prefers optimal approaches over naive or suboptimal solutions when explaining algorithms. Confidence: 0.9
-- Prefers being asked clarifying questions before starting when a request is ambiguous or uncertain. Confidence: 0.8
-- Values interview-focused coverage when requesting study/reference material. Confidence: 0.7
+# Taste Learnings
+
+- Background: experienced C++ programmer learning Python for DSA; learns Python best through C++ analogies and side-by-side C++↔Python comparisons. Confidence: 0.8
+- Asks to be asked clarifying questions before starting substantial tasks ("Ask if any doubts before starting"). Confidence: 0.8
