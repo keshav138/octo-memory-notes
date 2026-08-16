@@ -25,6 +25,8 @@ the same set, use visited sets for graph/board problems.
 ---
 
 ## 1. Subsets (all subsets of distinct nums)
+**Given:** an array of distinct numbers
+**Expects:** return all subsets (the power set)
 **Pattern:** Include/exclude decision tree (or index-based build)
 
 **Approach:**
@@ -36,6 +38,8 @@ the same set, use visited sets for graph/board problems.
 ---
 
 ## 2. Subsets II (with duplicates)
+**Given:** an array with duplicates
+**Expects:** return all unique subsets
 **Pattern:** Sort + skip same-level duplicates
 
 **Approach:** Sort; in the loop, `if i > start and nums[i] == nums[i-1]: continue`.
@@ -45,6 +49,8 @@ the same set, use visited sets for graph/board problems.
 ---
 
 ## 3. Permutations
+**Given:** an array of distinct numbers
+**Expects:** return all permutations
 **Pattern:** Swap-based or used-array backtracking
 
 **Approach:**
@@ -56,6 +62,8 @@ the same set, use visited sets for graph/board problems.
 ---
 
 ## 4. Permutations II (with duplicates)
+**Given:** an array with duplicates
+**Expects:** return all unique permutations
 **Pattern:** Sort + skip duplicates at same depth
 
 **Approach:** `if used[i] or (i > 0 and nums[i] == nums[i-1] and not used[i-1]): continue`.
@@ -65,6 +73,8 @@ the same set, use visited sets for graph/board problems.
 ---
 
 ## 5. Combination Sum (unlimited use, unique combos)
+**Given:** distinct candidates and a target
+**Expects:** return all unique combinations summing to target (unlimited reuse)
 **Pattern:** Index-based loop with reuse (`start` not advanced)
 
 **Approach:** `backtrack(start, remaining)`; loop `i` from `start`: push `nums[i]`, recurse `(i, remaining - nums[i])`, pop.
@@ -74,6 +84,8 @@ the same set, use visited sets for graph/board problems.
 ---
 
 ## 6. Combination Sum II (each number once, no dup combos)
+**Given:** candidates (with duplicates) and a target
+**Expects:** return unique combinations summing to target, using each number once
 **Pattern:** Sort + `start+1` + same-level dedup
 
 **Approach:** Recurse `(i+1, ...)`; skip `nums[i] == nums[i-1]` at same level.
@@ -83,6 +95,8 @@ the same set, use visited sets for graph/board problems.
 ---
 
 ## 7. Combination Sum III (k numbers from 1..9 summing to n)
+**Given:** k and n
+**Expects:** return all k-number combinations from 1..9 that sum to n
 **Pattern:** Fixed-count combination
 
 **Approach:** Loop `i` from `start` to 9; recurse with `k-1`, `remaining - i`; record when both hit 0.
@@ -92,6 +106,8 @@ the same set, use visited sets for graph/board problems.
 ---
 
 ## 8. Letter Combinations of a Phone Number
+**Given:** a digit string
+**Expects:** return all letter combinations from the phone keypad
 **Pattern:** Cartesian product DFS over digit map
 
 **Approach:** `digits → "abc"` map; for each digit, loop letters; recurse on next digit index.
@@ -101,6 +117,8 @@ the same set, use visited sets for graph/board problems.
 ---
 
 ## 9. Generate Parentheses
+**Given:** an integer n
+**Expects:** return all valid strings of n matched parentheses pairs
 **Pattern:** Constrained choice — open count < n, close count < open
 
 **Approach:**
@@ -115,6 +133,8 @@ Record when `len == 2n`.
 ---
 
 ## 10. Palindrome Partitioning
+**Given:** a string
+**Expects:** return all ways to split it into palindromic substrings
 **Pattern:** Cut-point DFS + palindrome check
 
 **Approach:** At each position, try every end `j`; if `s[i:j+1]` is palindrome, recurse on `j+1`. Memoize palindrome checks.
@@ -124,6 +144,8 @@ Record when `len == 2n`.
 ---
 
 ## 11. Word Search (grid word exists?)
+**Given:** a character grid and a word
+**Expects:** return true if the word exists in the grid
 **Pattern:** DFS on grid with visited marking (backtrack)
 
 **Approach:**
@@ -135,6 +157,8 @@ Record when `len == 2n`.
 ---
 
 ## 12. Word Search II (multiple words)
+**Given:** a character grid and a list of words
+**Expects:** return all words found in the grid
 **Pattern:** Trie + grid DFS — `#trie`
 
 **Approach:** Build trie of words; DFS grid following trie nodes; collect words at terminal nodes. Prune by removing found words.
@@ -144,6 +168,8 @@ Record when `len == 2n`.
 ---
 
 ## 13. N-Queens
+**Given:** an integer n
+**Expects:** return all boards placing n non-attacking queens
 **Pattern:** Row-by-row placement + conflict sets
 
 **Approach:**
@@ -160,6 +186,8 @@ diag2 = r - c       # ↙ diagonals
 ---
 
 ## 14. Sudoku Solver
+**Given:** a partially filled sudoku board
+**Expects:** return the solved board
 **Pattern:** Cell-by-cell DFS with row/col/box constraint sets
 
 **Approach:** Find empty cell; try 1-9; check row, col, box `(r//3, c//3)`; recurse; undo on fail. Optimize by picking the cell with fewest options (MRV).
@@ -169,6 +197,8 @@ diag2 = r - c       # ↙ diagonals
 ---
 
 ## 15. Word Break II (all segmentations)
+**Given:** a string s and a dictionary
+**Expects:** return all valid segmentations of s into dictionary words
 **Pattern:** DFS with memo over string positions
 
 **Approach:** `dfs(i)` returns all sentences for `s[i:]`; for each word in dict matching `s[i:i+len(w)]`, combine.
@@ -178,6 +208,8 @@ diag2 = r - c       # ↙ diagonals
 ---
 
 ## 16. Restore IP Addresses
+**Given:** a digit string
+**Expects:** return all valid IP addresses it can form
 **Pattern:** 4-segment DFS with validation
 
 **Approach:** Place 3 dots; each segment 1-3 digits, no leading zero (unless "0"), ≤ 255.
@@ -187,6 +219,8 @@ diag2 = r - c       # ↙ diagonals
 ---
 
 ## 17. Matchsticks to Square
+**Given:** matchstick lengths
+**Expects:** return true if they can form a square
 **Pattern:** DFS with side sums + pruning
 
 **Approach:** Target = total/4; assign each stick to one of 4 sides (descending sort first, skip equal side targets).
@@ -196,6 +230,8 @@ diag2 = r - c       # ↙ diagonals
 ---
 
 ## 18. Partition to K Equal Sum Subsets
+**Given:** an array and an integer k
+**Expects:** return true if it can be partitioned into k equal-sum subsets
 **Pattern:** DFS with visited mask + memo
 
 **Approach:** `dfs(mask, remaining)`: try adding each unused element to current bucket; memo on mask.
@@ -205,6 +241,8 @@ diag2 = r - c       # ↙ diagonals
 ---
 
 ## 19. Combination / Phone Number style — Generalized Abbreviation
+**Given:** a word
+**Expects:** return all abbreviations (digit runs represent abbreviated chars)
 **Pattern:** For each char: abbreviate (count++) or keep (flush count + char)
 
 **Approach:** At each index choose "abbreviate this char" (increment counter) or "keep it" (append counter + char, reset counter).
@@ -214,6 +252,8 @@ diag2 = r - c       # ↙ diagonals
 ---
 
 ## 20. Letter Case Permutation
+**Given:** an alphanumeric string
+**Expects:** return all strings obtained by toggling each letter's case
 **Pattern:** Branch on alpha chars only
 
 **Approach:** For each alpha char, branch upper/lower; digits pass through unchanged.
@@ -223,6 +263,8 @@ diag2 = r - c       # ↙ diagonals
 ---
 
 ## 21. Gray Code (n-bit sequence differing by 1 bit)
+**Given:** an integer n
+**Expects:** return an n-bit Gray code sequence where consecutive values differ by one bit
 **Pattern:** Recursive reflection — or backtracking with visited set
 
 **Approach:** `gray(n) = gray(n-1) + [x + 2^(n-1) for x in reversed(gray(n-1))]`.
@@ -232,6 +274,8 @@ diag2 = r - c       # ↙ diagonals
 ---
 
 ## 22. Remove Invalid Parentheses (minimum removals)
+**Given:** a parentheses string
+**Expects:** return all valid strings reachable with the minimum removals
 **Pattern:** BFS over states (or DFS with left/right removal counts)
 
 **Approach (DFS):** Count excess `(` and `)`; recurse choosing to remove each bracket; validate at leaf; dedupe results.
@@ -241,6 +285,8 @@ diag2 = r - c       # ↙ diagonals
 ---
 
 ## 23. Expression Add Operators (insert +,-,* into digits to hit target)
+**Given:** a digit string and a target
+**Expects:** return all expressions inserting +, -, * that evaluate to target
 **Pattern:** DFS with running value + last operand (for * precedence)
 
 **Approach:** Track `total`, `last` (previous operand), `prev` string. For `*`: `newTotal = total - last + last * cur`.
@@ -254,6 +300,8 @@ for multiplication: total = total - last + last * cur
 ---
 
 ## 24. Combination Iterator (k-length combos of a string, next() API)
+**Given:** a string and an integer k
+**Expects:** implement an iterator over all k-length combinations
 **Pattern:** Combinadic / bitmask iteration
 
 **Approach:** Precompute all C(n,k) bitmasks with k bits set (or use `itertools.combinations` in Python); next() steps through.
@@ -263,6 +311,8 @@ for multiplication: total = total - last + last * cur
 ---
 
 ## 25. Beautiful Arrangement (permutation with i % a[i] or a[i] % i)
+**Given:** an integer n
+**Expects:** return the count of permutations where i divides a[i] or vice versa
 **Pattern:** Permutation backtracking with position constraint
 
 **Approach:** At position `pos`, try unused numbers satisfying divisibility; backtrack.
@@ -272,6 +322,8 @@ for multiplication: total = total - last + last * cur
 ---
 
 ## 26. Path with Maximum Gold (grid collect, no revisits)
+**Given:** a gold grid
+**Expects:** return the maximum gold collectible in one non-revisiting path
 **Pattern:** Grid DFS returning max gold
 
 **Approach:** From each non-zero cell, DFS collecting `gold + max(neighbors)`; temporarily zero the cell, restore after.
@@ -281,6 +333,8 @@ for multiplication: total = total - last + last * cur
 ---
 
 ## 27. Knight's Tour / valid move counting — "Robot Room Cleaner" style exploration
+**Given:** a constrained grid or room
+**Expects:** return a valid exploration order visiting all reachable cells
 **Pattern:** Direction-ordered DFS with backtracking
 
 **Approach:** Try moves in fixed order; recurse; undo. For constrained grids, mark visited and unmark.

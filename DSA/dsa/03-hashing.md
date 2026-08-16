@@ -7,6 +7,8 @@ O(n²) pair checks into O(n) passes. Key ideas: **complement lookup**, **prefix-
 ---
 
 ## 1. Two Sum
+**Given:** an array of integers and an integer target
+**Expects:** return the two indices whose values sum to target
 **Pattern:** Complement lookup
 
 **Approach:** One pass. Check `target - x` in map; else store `x → i`.
@@ -16,6 +18,8 @@ O(n²) pair checks into O(n) passes. Key ideas: **complement lookup**, **prefix-
 ---
 
 ## 2. Contains Duplicate
+**Given:** an array of integers
+**Expects:** return true if any value appears more than once
 **Pattern:** Set membership
 
 **Approach:** Insert into set; duplicate on failed insert.
@@ -25,6 +29,8 @@ O(n²) pair checks into O(n) passes. Key ideas: **complement lookup**, **prefix-
 ---
 
 ## 3. Longest Consecutive Sequence
+**Given:** an unsorted array of integers
+**Expects:** return the length of the longest run of consecutive integers, in O(n)
 **Pattern:** Set of sequence heads
 
 **Approach:**
@@ -37,6 +43,8 @@ O(n²) pair checks into O(n) passes. Key ideas: **complement lookup**, **prefix-
 ---
 
 ## 4. Group Anagrams
+**Given:** a list of strings
+**Expects:** group strings that are anagrams of each other
 **Pattern:** Canonical key
 
 **Approach:** Key = sorted chars (or 26-char count tuple); `map[key].append(word)`.
@@ -46,6 +54,8 @@ O(n²) pair checks into O(n) passes. Key ideas: **complement lookup**, **prefix-
 ---
 
 ## 5. Subarray Sum Equals K
+**Given:** an array and a target k
+**Expects:** return the count of contiguous subarrays whose sum equals k
 **Pattern:** Prefix-sum frequency map
 
 **Approach:**
@@ -61,6 +71,8 @@ prefix[j] - prefix[i-1] = k  ⇒  look up how many prefixes equal prefix[j] - k
 ---
 
 ## 6. Continuous Subarray Sum (multiple of k, length ≥ 2)
+**Given:** an array and an integer k
+**Expects:** return true if some subarray of length ≥ 2 has a sum that is a multiple of k
 **Pattern:** Prefix mod + first-seen index
 
 **Approach:**
@@ -72,6 +84,8 @@ prefix[j] - prefix[i-1] = k  ⇒  look up how many prefixes equal prefix[j] - k
 ---
 
 ## 7. Top K Frequent Elements
+**Given:** an array and an integer k
+**Expects:** return the k most frequent values
 **Pattern:** Frequency map + bucket sort / heap
 
 **Approach:**
@@ -84,6 +98,8 @@ prefix[j] - prefix[i-1] = k  ⇒  look up how many prefixes equal prefix[j] - k
 ---
 
 ## 8. Valid Anagram
+**Given:** two strings
+**Expects:** return true if one is a permutation of the other's characters
 **Pattern:** Frequency table
 
 **Approach:** Increment for `s`, decrement for `t`, all zeros at the end.
@@ -93,6 +109,8 @@ prefix[j] - prefix[i-1] = k  ⇒  look up how many prefixes equal prefix[j] - k
 ---
 
 ## 9. Word Pattern (bijection between pattern chars and words)
+**Given:** a pattern string and a space-separated word string
+**Expects:** return true if the words follow the pattern as a bijection
 **Pattern:** Two-way mapping
 
 **Approach:** `char→word` and `word→char` maps; both must agree at every position. Split `s` on spaces first, and check `len(pattern) == len(words)`.
@@ -102,6 +120,8 @@ prefix[j] - prefix[i-1] = k  ⇒  look up how many prefixes equal prefix[j] - k
 ---
 
 ## 10. Isomorphic Strings
+**Given:** two strings
+**Expects:** return true if their characters map one-to-one preserving positions
 **Pattern:** Two-way char mapping
 
 **Approach:** Same bijection check as Word Pattern, on characters.
@@ -111,6 +131,8 @@ prefix[j] - prefix[i-1] = k  ⇒  look up how many prefixes equal prefix[j] - k
 ---
 
 ## 11. Intersection of Two Arrays (unique elements)
+**Given:** two arrays
+**Expects:** return their unique common elements
 **Pattern:** Set intersection
 
 ```python
@@ -122,6 +144,8 @@ set(nums1) & set(nums2)
 ---
 
 ## 12. 4Sum II (four arrays, count tuples summing to 0)
+**Given:** four arrays
+**Expects:** return the count of index tuples (one per array) that sum to zero
 **Pattern:** Meet-in-the-middle hash map
 
 **Approach:**
@@ -133,6 +157,8 @@ set(nums1) & set(nums2)
 ---
 
 ## 13. Copy List with Random Pointer
+**Given:** a linked list with next and random pointers
+**Expects:** return a deep copy of the list
 **Pattern:** Map old node → new node
 
 **Approach:**
@@ -144,6 +170,8 @@ set(nums1) & set(nums2)
 ---
 
 ## 14. Clone Graph
+**Given:** a graph node
+**Expects:** return a deep copy of the graph
 **Pattern:** DFS/BFS with visited map (original → clone)
 
 **Approach:** Recursively clone: if node already in map, return its clone; else create clone, map it, clone neighbors.
@@ -153,6 +181,8 @@ set(nums1) & set(nums2)
 ---
 
 ## 15. LRU Cache
+**Given:** a fixed capacity
+**Expects:** implement get/put in O(1), evicting the least recently used key when full
 **Pattern:** Hash map + doubly linked list
 
 **Approach:**
@@ -165,6 +195,8 @@ set(nums1) & set(nums2)
 ---
 
 ## 16. Longest Substring Without Repeating Characters
+**Given:** a string
+**Expects:** return the length of the longest substring with all unique characters
 **Pattern:** Map of last-seen index (with sliding window)
 
 **Approach:** `l = max(l, seen[c] + 1)` on repeat; update `seen[c] = r`.
@@ -174,6 +206,8 @@ set(nums1) & set(nums2)
 ---
 
 ## 17. Fraction to Recurring Decimal
+**Given:** a numerator and a denominator
+**Expects:** return the fraction string with any repeating part wrapped in parentheses
 **Pattern:** Remainder → position map
 
 **Approach:**
@@ -186,6 +220,8 @@ set(nums1) & set(nums2)
 ---
 
 ## 18. Random Pick with Weight
+**Given:** an array of positive weights
+**Expects:** implement pickIndex() returning indices with probability proportional to weight
 **Pattern:** Prefix sums + binary search
 
 **Approach:**
@@ -201,6 +237,8 @@ idx = bisect.bisect_left(prefix, random.randint(1, total))
 ---
 
 ## 19. Insert Delete GetRandom O(1)
+**Given:** nothing
+**Expects:** implement a set with insert, remove and getRandom all in average O(1)
 **Pattern:** Hash map (value → index) + array, swap-with-last removal
 
 **Approach:**
@@ -213,6 +251,8 @@ idx = bisect.bisect_left(prefix, random.randint(1, total))
 ---
 
 ## 20. Find All Anagrams in a String
+**Given:** strings s and p
+**Expects:** return all start indices in s where a permutation of p begins
 **Pattern:** Sliding window + frequency map (or 26-count array)
 
 **Approach:** Window of `len(p)` slides over `s`; compare counts each step (incrementally: add `s[r]`, drop `s[l]`).
@@ -222,6 +262,8 @@ idx = bisect.bisect_left(prefix, random.randint(1, total))
 ---
 
 ## 21. Time-Based Key-Value Store
+**Given:** set(key, timestamp, value) and get(key, timestamp) operations
+**Expects:** return the value stored at the latest timestamp ≤ the query timestamp
 **Pattern:** Map key → sorted list of (timestamp, value); binary search
 
 **Approach:**
@@ -233,6 +275,8 @@ idx = bisect.bisect_left(prefix, random.randint(1, total))
 ---
 
 ## 22. Encode and Decode TinyURL
+**Given:** long URLs
+**Expects:** implement a bijective encode/decode pair shortening and restoring them
 **Pattern:** Counter-based mapping
 
 **Approach:** Incrementing id → base-62 encoding; two maps: `long→short` and `short→long`.

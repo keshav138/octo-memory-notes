@@ -6,6 +6,8 @@ Most pointer bugs come from not tracking the node *before* the one you modify �
 ---
 
 ## 1. Reverse Linked List
+**Given:** a singly linked list
+**Expects:** return the reversed list
 **Pattern:** Three-pointer in-place reversal
 
 **Approach:**
@@ -23,6 +25,8 @@ return prev
 ---
 
 ## 2. Reverse Linked List II (positions l..r)
+**Given:** a list and positions l, r
+**Expects:** return the list with nodes l..r reversed
 **Pattern:** Dummy + splice reversal of sublist
 
 **Approach:** Walk to node before `l`; reverse `r-l+1` nodes in place; reconnect `prev` and tail.
@@ -32,6 +36,8 @@ return prev
 ---
 
 ## 3. Middle of Linked List
+**Given:** a linked list
+**Expects:** return the middle node
 **Pattern:** Slow/fast
 
 **Approach:** `slow` moves 1, `fast` moves 2. When `fast` is null (or `fast.next` null), `slow` is middle (second middle for even).
@@ -41,6 +47,8 @@ return prev
 ---
 
 ## 4. Linked List Cycle
+**Given:** a linked list
+**Expects:** return true if it contains a cycle
 **Pattern:** Floyd slow/fast
 
 **Approach:** Fast catches slow inside the loop ⇒ cycle exists. `fast` reaches null ⇒ no cycle.
@@ -50,6 +58,8 @@ return prev
 ---
 
 ## 5. Linked List Cycle II (find entry)
+**Given:** a linked list with a cycle
+**Expects:** return the node where the cycle begins
 **Pattern:** Floyd + reset
 
 **Approach:** After first meet, reset `slow = head`; step both by one; next meeting is the entry.
@@ -59,6 +69,8 @@ return prev
 ---
 
 ## 6. Merge Two Sorted Lists
+**Given:** two sorted linked lists
+**Expects:** return them merged into one sorted list
 **Pattern:** Dummy head + compare-and-append
 
 **Approach:** Dummy node; append smaller head; advance; attach remaining list.
@@ -68,6 +80,8 @@ return prev
 ---
 
 ## 7. Merge K Sorted Lists
+**Given:** k sorted linked lists
+**Expects:** return them merged into one sorted list
 **Pattern:** Min-heap of list heads (or divide & conquer merging)
 
 ```cpp
@@ -88,6 +102,8 @@ heapq.heapify(heap)
 ---
 
 ## 8. Remove Nth Node From End
+**Given:** a list head and an integer n
+**Expects:** return the list with the n-th node from the end removed
 **Pattern:** Gap pointers + dummy
 
 **Approach:** `fast` advances `n` steps; then both advance; `slow` lands before target; unlink.
@@ -97,6 +113,8 @@ heapq.heapify(heap)
 ---
 
 ## 9. Remove Duplicates from Sorted List
+**Given:** a sorted list with duplicates
+**Expects:** return the list with each value appearing once
 **Pattern:** Single pointer + skip equal values
 
 **Approach:** While `cur.next and cur.next.val == cur.val`: `cur.next = cur.next.next`.
@@ -106,6 +124,8 @@ heapq.heapify(heap)
 ---
 
 ## 10. Remove Duplicates from Sorted List II (drop ALL duplicates)
+**Given:** a sorted list with duplicates
+**Expects:** return the list with all duplicated values removed entirely
 **Pattern:** Dummy + look-ahead window
 
 **Approach:** If `cur.next` and `cur.next.next` have equal values, skip the entire run; else advance.
@@ -115,6 +135,8 @@ heapq.heapify(heap)
 ---
 
 ## 11. Palindrome Linked List
+**Given:** a linked list
+**Expects:** return true if its values form a palindrome
 **Pattern:** Middle + reverse second half + compare
 
 **Approach:** Find middle; reverse second half; compare two halves; (optionally restore).
@@ -124,6 +146,8 @@ heapq.heapify(heap)
 ---
 
 ## 12. Intersection of Two Linked Lists
+**Given:** two lists that share a common tail
+**Expects:** return the intersection node, or null
 **Pattern:** Length alignment (or two-pointer A→B→A)
 
 **Approach:** Walk both pointers; when one hits null, jump to the other list's head. They meet at the intersection (or both null).
@@ -141,6 +165,8 @@ return pa
 ---
 
 ## 13. Reorder List (1→n→2→n-1→…)
+**Given:** a list
+**Expects:** reorder it in-place as 1 → n → 2 → n-1 → ...
 **Pattern:** Middle + reverse second half + interleave
 
 **Approach:** Split at middle, reverse second half, merge alternately.
@@ -150,6 +176,8 @@ return pa
 ---
 
 ## 14. Add Two Numbers (digits reversed)
+**Given:** two lists of digits stored in reverse order
+**Expects:** return their sum as a linked list
 **Pattern:** Sentinel + carry loop
 
 **Approach:** While either list or carry: sum digits + carry; `carry = s // 10`; append `s % 10`.
@@ -159,6 +187,8 @@ return pa
 ---
 
 ## 15. Copy List with Random Pointer
+**Given:** a list with next and random pointers
+**Expects:** return a deep copy
 **Pattern:** Interleaving trick (O(1) space) or hash map (O(n) space)
 
 **Approach (interleave):**
@@ -171,6 +201,8 @@ return pa
 ---
 
 ## 16. Swap Nodes in Pairs
+**Given:** a list
+**Expects:** return the list with every adjacent pair swapped
 **Pattern:** Dummy + local pointer rewiring
 
 **Approach:** With `prev` before the pair: `prev.next = second; first.next = second.next; second.next = first; prev = first`.
@@ -180,6 +212,8 @@ return pa
 ---
 
 ## 17. Rotate List (rotate right by k)
+**Given:** a list and a rotation count k
+**Expects:** return the list rotated right by k places
 **Pattern:** Circle + cut
 
 **Approach:** Count length, `k %= len`; connect tail to head (circle); walk `len - k` steps from head; cut.
@@ -189,6 +223,8 @@ return pa
 ---
 
 ## 18. Odd Even Linked List (group by index parity)
+**Given:** a list
+**Expects:** regroup so odd-indexed nodes come before even-indexed nodes
 **Pattern:** Two-chain splice
 
 **Approach:** Maintain `odd` and `even` chains; walk two at a time; `odd.next = evenHead` at the end.
@@ -198,6 +234,8 @@ return pa
 ---
 
 ## 19. Partition List
+**Given:** a list and a value x
+**Expects:** reorder so nodes < x come before nodes ≥ x, preserving relative order
 **Pattern:** Two dummy chains (less / greater-equal)
 
 **Approach:** Route nodes into two chains; splice.
@@ -207,6 +245,8 @@ return pa
 ---
 
 ## 20. Flatten a Multilevel Doubly Linked List
+**Given:** a doubly linked list with child pointers
+**Expects:** return the list flattened into a single level
 **Pattern:** DFS with child pointer (or stack)
 
 **Approach:** Iterate; when node has `child`: push `next` onto stack, link `node ↔ child`, clear child. On list end, pop stack and link.
@@ -216,6 +256,8 @@ return pa
 ---
 
 ## 21. LRU Cache
+**Given:** a fixed capacity
+**Expects:** implement get/put in O(1), evicting the least recently used key when full
 **Pattern:** Hash map + doubly linked list — `#design`
 
 **Approach:** Map `key → node`; DLL ordered by recency. `get` → move to head; `put` → insert head, evict tail if over capacity.
@@ -225,6 +267,8 @@ return pa
 ---
 
 ## 22. Sort List
+**Given:** an unsorted list
+**Expects:** return the list sorted in O(n log n)
 **Pattern:** Merge sort (bottom-up or recursive split via slow/fast)
 
 **Approach:** Split at middle (slow/fast), recursively sort halves, merge sorted lists.
@@ -234,6 +278,8 @@ return pa
 ---
 
 ## 23. Insert into a Sorted Circular Linked List
+**Given:** a sorted circular list and a value
+**Expects:** return the list with the value inserted in sorted position
 **Pattern:** Circular traversal with case handling
 
 **Approach:** Cases: empty list; insert between two nodes; insert at min/max boundary (where `prev > cur`). Use `while cur != head` loop carefully.

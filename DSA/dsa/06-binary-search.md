@@ -12,6 +12,8 @@ Golden rules:
 ---
 
 ## 1. Binary Search (classic)
+**Given:** a sorted array and a target
+**Expects:** return the target's index, or -1
 **Pattern:** Index search in sorted array
 
 **Approach:** Standard `while lo <= hi`; `mid = lo + (hi-lo)/2`; compare; move.
@@ -21,6 +23,8 @@ Golden rules:
 ---
 
 ## 2. First / Last Position of Target in Sorted Array (lower_bound / upper_bound)
+**Given:** a sorted array with duplicates and a target
+**Expects:** return [first, last] index of the target, or [-1, -1]
 **Pattern:** Boundary search variants
 
 ```cpp
@@ -49,6 +53,8 @@ return lo
 ---
 
 ## 3. Search in Rotated Sorted Array
+**Given:** a sorted array rotated at an unknown pivot, and a target
+**Expects:** return the target's index in O(log n), or -1
 **Pattern:** Check which half is sorted
 
 **Approach:**
@@ -69,6 +75,8 @@ else:                                          # right half sorted
 ---
 
 ## 4. Search in Rotated Sorted Array II (with duplicates)
+**Given:** same rotated array but with duplicates, and a target
+**Expects:** return true if the target exists
 **Pattern:** Same, but skip duplicates when `lo`, `mid`, `hi` equal
 
 **Approach:** When `a[lo] == a[mid] == a[hi]`, `lo++, hi--`; else proceed as above.
@@ -78,6 +86,8 @@ else:                                          # right half sorted
 ---
 
 ## 5. Find Minimum in Rotated Sorted Array
+**Given:** a rotated sorted array with distinct values
+**Expects:** return the minimum element
 **Pattern:** Compare mid with right end
 
 **Approach:** If `a[mid] > a[hi]` → min is in right half (`lo = mid + 1`); else `hi = mid`.
@@ -87,6 +97,8 @@ else:                                          # right half sorted
 ---
 
 ## 6. Search a 2D Matrix (rows sorted, first of row > last of previous)
+**Given:** an m×n matrix sorted row-major, and a target
+**Expects:** return true if the target exists, in O(log mn)
 **Pattern:** Flatten to 1D index
 
 **Approach:** Treat as sorted array of `m*n`: `row = idx // n`, `col = idx % n`.
@@ -96,6 +108,8 @@ else:                                          # right half sorted
 ---
 
 ## 7. Search a 2D Matrix II (rows and cols sorted, not strictly serialized)
+**Given:** a matrix with sorted rows and sorted columns, and a target
+**Expects:** return true if the target exists, in O(m + n)
 **Pattern:** Start from top-right corner — elimination
 
 **Approach:**
@@ -107,6 +121,8 @@ else:                                          # right half sorted
 ---
 
 ## 8. Find Peak Element
+**Given:** an array in arbitrary order
+**Expects:** return the index of any peak (element greater than both neighbors)
 **Pattern:** Binary search on slope direction
 
 **Approach:**
@@ -120,6 +136,8 @@ else:                                          # right half sorted
 ---
 
 ## 9. Koko Eating Bananas (minimum rate)
+**Given:** banana pile sizes and an hour limit h
+**Expects:** return the minimum eating speed that finishes all piles in h hours
 **Pattern:** Answer-space binary search with monotone predicate
 
 **Approach:**
@@ -135,6 +153,8 @@ ceil(p / k) = (p + k - 1) // k
 ---
 
 ## 10. Capacity To Ship Packages Within D Days
+**Given:** package weights and a day limit D
+**Expects:** return the minimum ship capacity that ships everything in D days
 **Pattern:** Answer-space binary search
 
 **Approach:**
@@ -146,6 +166,8 @@ ceil(p / k) = (p + k - 1) // k
 ---
 
 ## 11. Split Array Largest Sum (minimize max subarray sum with m splits)
+**Given:** an array and a split count m
+**Expects:** return the minimized largest subarray sum over m contiguous splits
 **Pattern:** Answer-space binary search
 
 **Approach:** Same as shipping: `check(maxSum)`: can we split into ≤ m subarrays each with sum ≤ maxSum?
@@ -155,6 +177,8 @@ ceil(p / k) = (p + k - 1) // k
 ---
 
 ## 12. Find K-th Smallest Pair Distance
+**Given:** an array and an integer k
+**Expects:** return the k-th smallest absolute difference among all pairs
 **Pattern:** Answer-space BS + counting with two pointers
 
 **Approach:**
@@ -167,6 +191,8 @@ ceil(p / k) = (p + k - 1) // k
 ---
 
 ## 13. Median of Two Sorted Arrays
+**Given:** two sorted arrays
+**Expects:** return the median of their merged content, without merging, in O(log)
 **Pattern:** Binary search on the smaller array partition
 
 **Approach:**
@@ -183,6 +209,8 @@ partition: i + j = (m + n + 1) // 2
 ---
 
 ## 14. Find the Smallest Divisor Given a Threshold
+**Given:** an array and a threshold
+**Expects:** return the smallest divisor such that the sum of ceilings is ≤ threshold
 **Pattern:** Answer-space BS
 
 **Approach:** Search divisor; `sum(ceil(n/d)) <= threshold` is monotone.
@@ -192,6 +220,8 @@ partition: i + j = (m + n + 1) // 2
 ---
 
 ## 15. K-th Missing Positive Number
+**Given:** a strictly increasing array and an integer k
+**Expects:** return the k-th positive integer missing from the array
 **Pattern:** BS on index arithmetic
 
 **Approach:** `missing up to arr[i] = arr[i] - (i + 1)`. Find first `i` where this ≥ k; answer = `i + k`.
@@ -201,6 +231,8 @@ partition: i + j = (m + n + 1) // 2
 ---
 
 ## 16. Find First and Last Position of Element (search range)
+**Given:** a sorted array and a target
+**Expects:** return [first, last] index via two boundary searches
 **Pattern:** Two boundary searches
 
 **Approach:** `lower_bound(x)` for first; `upper_bound(x) - 1` for last.
@@ -210,6 +242,8 @@ partition: i + j = (m + n + 1) // 2
 ---
 
 ## 17. H-Index II (sorted citations)
+**Given:** an already-sorted citations array
+**Expects:** return the h-index
 **Pattern:** BS on monotone count
 
 **Approach:** Find first `i` where `citations[i] >= n - i`; answer `n - i`.
@@ -219,6 +253,8 @@ partition: i + j = (m + n + 1) // 2
 ---
 
 ## 18. Sqrt(x) (integer square root)
+**Given:** a non-negative integer x
+**Expects:** return the integer square root of x (truncated)
 **Pattern:** Answer-space BS
 
 **Approach:** Search `mid` in `[0, x]`; `mid*mid <= x` → move right. Use `long long` in C++ to avoid overflow.
@@ -228,6 +264,8 @@ partition: i + j = (m + n + 1) // 2
 ---
 
 ## 19. Single Element in a Sorted Array (every other appears twice)
+**Given:** a sorted array where every element appears twice except one
+**Expects:** return the single element in O(log n)
 **Pattern:** BS on parity of index
 
 **Approach:** For pairs `(even, odd)`, if `mid` is even and `a[mid] == a[mid+1]`, single is on the right; else left.
@@ -243,6 +281,8 @@ else: hi = mid
 ---
 
 ## 20. Time-Based Key-Value Store
+**Given:** set(key, timestamp, value) and get(key, timestamp)
+**Expects:** return the value stored at the latest timestamp ≤ the query timestamp
 **Pattern:** BS on sorted timestamps per key
 
 **Approach:** `bisect_right(timestamps, t) - 1` → last value at or before `t`.
@@ -252,6 +292,8 @@ else: hi = mid
 ---
 
 ## 21. Random Pick with Weight
+**Given:** an array of positive weights
+**Expects:** implement pickIndex() with probability proportional to weight
 **Pattern:** Prefix sums + `bisect_left` on random point
 
 **Approach:** `r = rand(1..total)`; index = `bisect_left(prefix, r)`.
@@ -261,6 +303,8 @@ else: hi = mid
 ---
 
 ## 22. Minimum Number of Days to Make m Bouquets
+**Given:** a bloom-day array, m bouquets needed, k adjacent flowers each
+**Expects:** return the minimum day on which m bouquets can be made
 **Pattern:** Answer-space BS
 
 **Approach:** `check(day)`: can we form `m` bouquets of `k` adjacent bloomed flowers by `day`? — greedy scan, monotone in `day`.
@@ -270,6 +314,8 @@ else: hi = mid
 ---
 
 ## 23. Search Insert Position
+**Given:** a sorted array and a target
+**Expects:** return the index where the target is or should be inserted
 **Pattern:** `lower_bound`
 
 **Approach:** First index with `a[i] >= target`.

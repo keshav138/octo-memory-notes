@@ -30,6 +30,8 @@ differs meaningfully between the languages. Otherwise a single language-agnostic
 | 18 | [18-advanced-design.md](18-advanced-design.md) | Union-Find, segment tree, LRU/LFU, iterator, data stream |
 | — | [cpp-to-python-cheatsheet.md](cpp-to-python-cheatsheet.md) | C++ → Python cheatsheet (idioms, syntax, built-ins) |
 | — | [python-one-liners.md](python-one-liners.md) | One-line Python: map, lambda, zip, functools, itertools |
+| — | [mcq-code-prep.md](mcq-code-prep.md) | MCQ snippet prep: C memory/UB, C++ OOP/STL, Java JVM, Python gotchas |
+| — | [dsa-mcq-prep.md](dsa-mcq-prep.md) | DSA MCQ theory: algorithms, differences, complexities per topic |
 
 ## How to use
 

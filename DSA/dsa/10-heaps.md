@@ -7,6 +7,8 @@ top-k smallest (or negate values into a min-heap).
 ---
 
 ## 1. Kth Largest Element in an Array
+**Given:** an array and an integer k
+**Expects:** return the k-th largest element
 **Pattern:** Min-heap of size k
 
 **Approach:**
@@ -29,6 +31,8 @@ return heap[0]
 ---
 
 ## 2. Kth Smallest Element
+**Given:** an array and an integer k
+**Expects:** return the k-th smallest element
 **Pattern:** Max-heap of size k (or negate into min-heap)
 
 ```cpp
@@ -47,6 +51,8 @@ return -heap[0]
 ---
 
 ## 3. Top K Frequent Elements
+**Given:** an array and an integer k
+**Expects:** return the k most frequent values
 **Pattern:** Frequency map + min-heap of size k on `(freq, val)`
 
 **Approach:** Count frequencies; heap keyed by `(freq, val)`; keep size k; result = heap values.
@@ -56,6 +62,8 @@ return -heap[0]
 ---
 
 ## 4. Merge K Sorted Lists
+**Given:** k sorted linked lists
+**Expects:** return them merged into one sorted list
 **Pattern:** Min-heap of list heads
 
 **Approach:** Push `(head.val, idx, head)` for each non-null list; repeatedly pop min, append, push its `next`.
@@ -65,6 +73,8 @@ return -heap[0]
 ---
 
 ## 5. K Closest Points to Origin
+**Given:** points and an integer k
+**Expects:** return the k points closest to the origin
 **Pattern:** Max-heap of size k keyed by distance
 
 **Approach:** `dist = x² + y²` (skip sqrt — monotone); max-heap (or negated min-heap) of size k; pop farthest when full.
@@ -74,6 +84,8 @@ return -heap[0]
 ---
 
 ## 6. Find Median from Data Stream
+**Given:** a stream of numbers
+**Expects:** return the median after each insertion
 **Pattern:** Two heaps — max-heap of lower half, min-heap of upper half
 
 **Approach:**
@@ -94,6 +106,8 @@ if len(hi) > len(lo): heappush(lo, -heappop(hi))
 ---
 
 ## 7. Task Scheduler (minimum intervals with cooldown n)
+**Given:** task labels and a cooldown n
+**Expects:** return the minimum intervals to finish all tasks
 **Pattern:** Max-heap of frequencies + idle simulation (or greedy formula)
 
 **Approach:**
@@ -110,6 +124,8 @@ min time = max( (maxFreq - 1) * (n + 1) + countOfMaxFreq, len(tasks) )   // form
 ---
 
 ## 8. K-th Largest Element in a Stream
+**Given:** a stream of numbers and an integer k
+**Expects:** return the k-th largest after each add
 **Pattern:** Persistent min-heap of size k
 
 **Approach:** `add(x)`: push; if size > k, pop. Top = k-th largest.
@@ -119,6 +135,8 @@ min time = max( (maxFreq - 1) * (n + 1) + countOfMaxFreq, len(tasks) )   // form
 ---
 
 ## 9. Last Stone Weight
+**Given:** stone weights
+**Expects:** return the last remaining weight after repeated smash rules
 **Pattern:** Max-heap simulation
 
 **Approach:** Negate into heap; pop two heaviest; if unequal push back difference.
@@ -128,6 +146,8 @@ min time = max( (maxFreq - 1) * (n + 1) + countOfMaxFreq, len(tasks) )   // form
 ---
 
 ## 10. Reorganize String (no two adjacent same chars)
+**Given:** a string
+**Expects:** return a rearrangement with no two adjacent equal characters, or ""
 **Pattern:** Max-heap by frequency, alternate with cooldown
 
 **Approach:** Pop most frequent char, append; hold it out for one round (cooldown queue/slot); repeat. Fail if heap empties with a held char remaining.
@@ -137,6 +157,8 @@ min time = max( (maxFreq - 1) * (n + 1) + countOfMaxFreq, len(tasks) )   // form
 ---
 
 ## 11. Smallest Range Covering Elements from K Lists
+**Given:** k sorted lists
+**Expects:** return the smallest range that includes at least one number from each list
 **Pattern:** Min-heap + running max (sliding k-window across lists)
 
 **Approach:** Push first element of each list (with list index); track `maxVal`; repeatedly pop min, update range `[minVal, maxVal]`, push next element from that list.
@@ -146,6 +168,8 @@ min time = max( (maxFreq - 1) * (n + 1) + countOfMaxFreq, len(tasks) )   // form
 ---
 
 ## 12. Meeting Rooms II (min rooms) — also see [15-intervals.md](15-intervals.md)
+**Given:** meeting intervals
+**Expects:** return the minimum rooms needed
 **Pattern:** Sort by start + min-heap of end times
 
 **Approach:** Sort intervals by start; min-heap of ongoing meetings' end times; if `start >= heap[0]` → pop (reuse room); push end. Answer = max heap size.
@@ -155,6 +179,8 @@ min time = max( (maxFreq - 1) * (n + 1) + countOfMaxFreq, len(tasks) )   // form
 ---
 
 ## 13. Top K Frequent Words
+**Given:** words and an integer k
+**Expects:** return the k most frequent words, ties broken lexicographically
 **Pattern:** Frequency map + heap with custom comparator (freq desc, lex asc)
 
 ```cpp
@@ -171,6 +197,8 @@ heapq.nlargest(k, count.keys(), key=lambda w: (-count[w], w))
 ---
 
 ## 14. Kth Smallest Sum in a Matrix (sorted rows)
+**Given:** an m×n matrix with sorted rows, and k
+**Expects:** return the k-th smallest sum picking one element per row
 
 **Pattern:** BFS on sum space with min-heap
 
@@ -181,6 +209,8 @@ heapq.nlargest(k, count.keys(), key=lambda w: (-count[w], w))
 ---
 
 ## 15. Find K Pairs with Smallest Sums
+**Given:** two sorted arrays and k
+**Expects:** return the k pairs with the smallest sums
 **Pattern:** Min-heap BFS over pair grid
 
 **Approach:** Push `(a0+b0, 0, 0)`; repeatedly pop, record pair, push `(i+1, j)` and `(i, j+1)` (with visited set to dedupe).
@@ -190,6 +220,8 @@ heapq.nlargest(k, count.keys(), key=lambda w: (-count[w], w))
 ---
 
 ## 16. Minimize Max Distance to Gas Station (k extra stations)
+**Given:** existing gas stations and k new ones
+**Expects:** return the minimized maximum distance between adjacent stations
 **Pattern:** Max-heap of segment gains (or answer-space binary search)
 
 **Approach (heap):** For each segment, heap key = `len / parts` (next reduction). Pop max-gain segment, add a station (`parts++`), push back.
@@ -199,6 +231,8 @@ heapq.nlargest(k, count.keys(), key=lambda w: (-count[w], w))
 ---
 
 ## 17. IPO (maximize capital with at most k projects)
+**Given:** projects with (capital, profit) and a limit k
+**Expects:** return the maximum final capital after at most k projects
 **Pattern:** Two heaps — min-heap by capital + max-heap by profit
 
 **Approach:** Sort projects by capital (min-heap); at each step, move all affordable into a max-profit heap; pick best, add profit to capital; repeat k times.
@@ -208,6 +242,8 @@ heapq.nlargest(k, count.keys(), key=lambda w: (-count[w], w))
 ---
 
 ## 18. Sort a Nearly Sorted Array (each element at most k from sorted position)
+**Given:** an array where each element is at most k positions from sorted
+**Expects:** return the fully sorted array
 **Pattern:** Min-heap window of size k+1
 
 **Approach:** Heap of first k+1; repeatedly pop min to output, push next element.
@@ -217,6 +253,8 @@ heapq.nlargest(k, count.keys(), key=lambda w: (-count[w], w))
 ---
 
 ## 19. Sliding Window Median
+**Given:** an array and a window size k
+**Expects:** return the median of every k-sized window
 **Pattern:** Two-heap median + lazy deletion
 
 **Approach:** Two heaps (like Find Median from Data Stream) over window; on slide, mark removed elements with a counter and pop lazily when they reach heap top.
@@ -226,6 +264,8 @@ heapq.nlargest(k, count.keys(), key=lambda w: (-count[w], w))
 ---
 
 ## 20. The Skyline Problem
+**Given:** building rectangles
+**Expects:** return the skyline outline points
 **Pattern:** Sweep line + max-heap of heights
 
 **Approach:**
@@ -238,6 +278,8 @@ heapq.nlargest(k, count.keys(), key=lambda w: (-count[w], w))
 ---
 
 ## 21. Swim in Rising Water
+**Given:** an n×n elevation grid
+**Expects:** return the minimum time to swim from (0,0) to (n-1,n-1)
 **Pattern:** Min-heap Dijkstra/BFS variant on grid
 
 **Approach:** Start `(0,0)`; pop cell with smallest elevation; expand neighbors; track max elevation on path; answer = max at `(n-1, n-1)`.
@@ -247,6 +289,8 @@ heapq.nlargest(k, count.keys(), key=lambda w: (-count[w], w))
 ---
 
 ## 22. Furthest Building You Can Reach
+**Given:** building heights, bricks and ladders
+**Expects:** return the furthest reachable building index
 **Pattern:** Max-heap of largest gaps (bricks) / min-heap of smallest gaps (ladders)
 
 **Approach:** For each climb `d`: push into min-heap (use ladder). If heap size > ladders: pop smallest, spend bricks on it. Stop when bricks < 0.

@@ -6,6 +6,8 @@ rewriting, cycle detection, matrix traversal, index arithmetic.
 ---
 
 ## 1. Two Sum
+**Given:** an array of integers and an integer target
+**Expects:** return the two indices whose values sum to target
 **Pattern:** Hash map (complement lookup) — `#hashing`
 
 **Approach:**
@@ -28,6 +30,8 @@ if target - x in seen: return [seen[target - x], i]
 ---
 
 ## 2. Best Time to Buy and Sell Stock (single transaction)
+**Given:** an array of daily stock prices
+**Expects:** return the max profit from a single buy-then-sell
 **Pattern:** Kadane-style running min/max diff
 
 **Approach:**
@@ -41,6 +45,8 @@ if target - x in seen: return [seen[target - x], i]
 ---
 
 ## 3. Product of Array Except Self
+**Given:** an array of integers (zeros and negatives allowed)
+**Expects:** return an array where each element is the product of every element except itself, without division
 **Pattern:** Two-pass prefix/suffix products, no division
 
 **Approach:**
@@ -58,6 +64,8 @@ for i in range(n-2, -1, -1):  res[i] *= suffix        # suffix *= nums[i+1]
 ---
 
 ## 4. Maximum Subarray (Kadane's Algorithm)
+**Given:** an array of integers (possibly all negative)
+**Expects:** return the maximum sum of any contiguous subarray
 **Pattern:** Dynamic programming, running sum reset
 
 **Approach:**
@@ -69,6 +77,8 @@ for i in range(n-2, -1, -1):  res[i] *= suffix        # suffix *= nums[i+1]
 ---
 
 ## 5. Merge Sorted Arrays (in-place, nums1 has trailing buffer)
+**Given:** two sorted arrays; the first has a trailing zero-buffer sized for the second
+**Expects:** merge them into the first array, sorted, in-place
 **Pattern:** Three pointers, fill from the back
 
 **Approach:**
@@ -83,6 +93,8 @@ for i in range(n-2, -1, -1):  res[i] *= suffix        # suffix *= nums[i+1]
 ---
 
 ## 6. Rotate Array (by k steps)
+**Given:** an array and a rotation count k
+**Expects:** rotate the array right by k positions in-place
 **Pattern:** Three reversals
 
 **Approach:**
@@ -100,6 +112,8 @@ rev(0, n-1); rev(0, k-1); rev(k, n-1)
 ---
 
 ## 7. Contains Duplicate
+**Given:** an array of integers
+**Expects:** return true if any value appears more than once
 **Pattern:** Hash set
 
 **Approach:** Add each element to a set; a failed insertion means duplicate.
@@ -109,6 +123,8 @@ rev(0, n-1); rev(0, k-1); rev(k, n-1)
 ---
 
 ## 8. Find Missing Number (0..n)
+**Given:** an array containing 0..n except one missing number
+**Expects:** return the missing number
 **Pattern:** XOR or sum formula
 
 **Approach:** `missing = sum(0..n) - sum(array)` — or XOR all indices and values, the survivor is the missing number.
@@ -122,6 +138,8 @@ sum(0..n) = n*(n+1)/2
 ---
 
 ## 9. Find All Duplicates in Array (values in [1, n])
+**Given:** an array of length n with values in [1, n], some appearing twice
+**Expects:** return all values appearing twice in O(n) time, O(1) space
 **Pattern:** Index marking (negation) — cycle-sort trick
 
 **Approach:**
@@ -133,6 +151,8 @@ sum(0..n) = n*(n+1)/2
 ---
 
 ## 10. First Missing Positive
+**Given:** an unsorted integer array (negatives and zeros allowed)
+**Expects:** return the smallest positive integer not present
 **Pattern:** Cycle sort / in-place bucket placement
 
 **Approach:**
@@ -144,6 +164,8 @@ sum(0..n) = n*(n+1)/2
 ---
 
 ## 11. Majority Element (appears > n/2)
+**Given:** an array where one element appears more than n/2 times
+**Expects:** return that majority element in O(n) time, O(1) space
 **Pattern:** Boyer-Moore voting
 
 **Approach:**
@@ -156,6 +178,8 @@ sum(0..n) = n*(n+1)/2
 ---
 
 ## 12. Next Permutation
+**Given:** an array of numbers
+**Expects:** rearrange it in-place into the lexicographically next greater permutation (or smallest if none exists)
 **Pattern:** Lexicographic successor
 
 **Approach:**
@@ -168,6 +192,8 @@ sum(0..n) = n*(n+1)/2
 ---
 
 ## 13. Spiral Matrix
+**Given:** an m×n matrix
+**Expects:** return the elements in clockwise spiral order
 **Pattern:** Four boundary pointers
 
 **Approach:**
@@ -180,6 +206,8 @@ sum(0..n) = n*(n+1)/2
 ---
 
 ## 14. Rotate Image (90° clockwise, in-place)
+**Given:** an n×n matrix
+**Expects:** rotate it 90 degrees clockwise in-place
 **Pattern:** Transpose + reverse rows
 
 **Approach:**
@@ -191,6 +219,8 @@ sum(0..n) = n*(n+1)/2
 ---
 
 ## 15. Set Matrix Zeroes
+**Given:** an m×n matrix containing zeros
+**Expects:** set every cell in a zero's row or column to zero, in-place
 **Pattern:** In-place flags in first row/col
 
 **Approach:**
@@ -203,6 +233,8 @@ sum(0..n) = n*(n+1)/2
 ---
 
 ## 16. Subarray Sum Equals K
+**Given:** an array and a target k (values may be negative)
+**Expects:** return the count of contiguous subarrays whose sum equals k
 **Pattern:** Prefix sum + hash map of counts
 
 **Approach:**
@@ -219,6 +251,8 @@ subarray(i, j] sums to k  ⇔  prefix[j] - prefix[i-1] = k
 ---
 
 ## 17. Sort Colors (Dutch National Flag)
+**Given:** an array containing only 0s, 1s and 2s
+**Expects:** sort it in one pass with O(1) space
 **Pattern:** Three-way partition — `#two-pointers`
 
 **Approach:**
@@ -230,6 +264,8 @@ subarray(i, j] sums to k  ⇔  prefix[j] - prefix[i-1] = k
 ---
 
 ## 18. Trapping Rain Water
+**Given:** an array of bar heights
+**Expects:** return the total units of water trapped between bars
 **Pattern:** Two-pointer bounded by min of max heights
 
 **Approach:**
@@ -243,6 +279,8 @@ subarray(i, j] sums to k  ⇔  prefix[j] - prefix[i-1] = k
 ---
 
 ## 19. Gas Station (circular route)
+**Given:** gas and cost arrays for a circular route
+**Expects:** return the starting index where a full trip is possible, or -1
 **Pattern:** Greedy — total surplus feasibility + running surplus restart
 
 **Approach:**
@@ -254,6 +292,8 @@ subarray(i, j] sums to k  ⇔  prefix[j] - prefix[i-1] = k
 ---
 
 ## 20. Merge Intervals
+**Given:** a list of intervals
+**Expects:** return the merged list of all overlapping intervals
 **Pattern:** Sort by start + sweep — `#intervals`
 
 **Approach:**
@@ -265,6 +305,8 @@ subarray(i, j] sums to k  ⇔  prefix[j] - prefix[i-1] = k
 ---
 
 ## 21. Search in Rotated Sorted Array
+**Given:** a sorted array rotated at an unknown pivot, and a target
+**Expects:** return the target's index in O(log n), or -1
 **Pattern:** Modified binary search — `#binary-search`
 
 **Approach:**
@@ -276,6 +318,8 @@ subarray(i, j] sums to k  ⇔  prefix[j] - prefix[i-1] = k
 ---
 
 ## 22. Longest Consecutive Sequence
+**Given:** an unsorted array of integers
+**Expects:** return the length of the longest run of consecutive integers, in O(n)
 **Pattern:** Hash set of sequence starts
 
 **Approach:**
@@ -288,6 +332,8 @@ subarray(i, j] sums to k  ⇔  prefix[j] - prefix[i-1] = k
 ---
 
 ## 23. Find Duplicate Number (array with values in [1, n], exactly one repeat)
+**Given:** an array of n+1 values in [1, n] with exactly one repeated value
+**Expects:** return the duplicate in O(n) time, O(1) space, without mutating the array
 **Pattern:** Floyd's cycle detection on index graph
 
 **Approach:**

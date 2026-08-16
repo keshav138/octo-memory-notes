@@ -6,6 +6,8 @@ or palindrome structure. Language differences (immutable strings in Python) matt
 ---
 
 ## 1. Valid Palindrome (with non-alphanumeric ignored)
+**Given:** a string with letters, digits, punctuation and mixed case
+**Expects:** return true if its alphanumeric characters read the same forward and backward (case-insensitive)
 **Pattern:** Two pointers + char filtering
 
 **Approach:**
@@ -26,6 +28,8 @@ ch.isalnum()  and  ch.lower()
 ---
 
 ## 2. Valid Anagram
+**Given:** two strings
+**Expects:** return true if one is a permutation of the other's characters
 **Pattern:** Frequency count
 
 **Approach:** Count chars in `s`, decrement for `t`; all counts must end at zero.
@@ -36,6 +40,8 @@ ch.isalnum()  and  ch.lower()
 ---
 
 ## 3. Group Anagrams
+**Given:** a list of strings
+**Expects:** group strings that are anagrams of each other
 **Pattern:** Canonical key + hash map — `#hashing`
 
 **Approach:**
@@ -52,6 +58,8 @@ key = tuple(counter(w)[c] for c in "abcdefghijklmnopqrstuvwxyz")   # O(n·k) vs 
 ---
 
 ## 4. Longest Substring Without Repeating Characters
+**Given:** a string
+**Expects:** return the length of the longest substring with all unique characters
 **Pattern:** Sliding window + last-seen index map — `#sliding-window`
 
 **Approach:**
@@ -64,6 +72,8 @@ key = tuple(counter(w)[c] for c in "abcdefghijklmnopqrstuvwxyz")   # O(n·k) vs 
 ---
 
 ## 5. Longest Palindromic Substring
+**Given:** a string
+**Expects:** return the longest substring that reads the same both ways
 **Pattern:** Expand around centers
 
 **Approach:**
@@ -79,6 +89,8 @@ centers: 2n - 1   (n odd + n-1 even)
 ---
 
 ## 6. Palindromic Substrings (count)
+**Given:** a string
+**Expects:** return the count of all palindromic substrings
 **Pattern:** Same center expansion, count each palindrome found
 
 **Approach:** For each of the `2n-1` centers, expand and `count++` for each valid palindrome.
@@ -88,6 +100,8 @@ centers: 2n - 1   (n odd + n-1 even)
 ---
 
 ## 7. Longest Common Prefix
+**Given:** a list of strings
+**Expects:** return the longest prefix shared by all of them
 **Pattern:** Vertical scan (or sort + compare first/last)
 
 **Approach:**
@@ -99,6 +113,8 @@ centers: 2n - 1   (n odd + n-1 even)
 ---
 
 ## 8. Reverse Words in a String (trim, single spaces)
+**Given:** a string of words with extra spaces
+**Expects:** return the words in reverse order, single-spaced
 **Pattern:** In-place two-pass reversal (C++) / split+join (Python)
 
 ```cpp
@@ -116,6 +132,8 @@ reverse(s.begin(), s.end());
 ---
 
 ## 9. String to Integer (atoi)
+**Given:** a string starting with spaces, an optional sign and digits, then junk
+**Expects:** return the parsed integer clamped to the 32-bit range
 **Pattern:** DFA / step-by-step parsing
 
 **Approach (states):** skip whitespace → optional sign → digits (clamp on overflow) → stop.
@@ -130,6 +148,8 @@ if res > (INT_MAX - digit) / 10: return INT_MAX (or INT_MIN for negative)
 ---
 
 ## 10. Implement `strStr` / Find Needle in Haystack
+**Given:** haystack and needle strings
+**Expects:** return the index of the needle's first occurrence, or -1
 **Pattern:** KMP (optimal) or rolling hash (Rabin-Karp)
 
 **KMP approach:**
@@ -149,6 +169,8 @@ lps[i] = j
 ---
 
 ## 11. Repeated Substring Pattern
+**Given:** a string
+**Expects:** return true if it is formed by repeating a smaller substring multiple times
 **Pattern:** String doubling trick or LPS
 
 **Approach:**
@@ -160,6 +182,8 @@ lps[i] = j
 ---
 
 ## 12. Basic Calculator II (+, -, *, /, no parens)
+**Given:** a string expression with +, -, *, / and no parentheses
+**Expects:** return the evaluated result honoring operator precedence
 **Pattern:** Stack with sign-delayed evaluation
 
 **Approach:**
@@ -173,6 +197,8 @@ lps[i] = j
 ---
 
 ## 13. Decode String (`3[a2[c]]` → `accaccacc`)
+**Given:** an encoded string like "3[a2[c]]"
+**Expects:** return the fully decoded string
 **Pattern:** Stack of (string, repeat-count) pairs
 
 **Approach:**
@@ -184,6 +210,8 @@ lps[i] = j
 ---
 
 ## 14. Valid Parentheses
+**Given:** a string of brackets () [] {}
+**Expects:** return true if they are properly matched and nested
 **Pattern:** Stack matching — `#stack`
 
 **Approach:**
@@ -195,6 +223,8 @@ lps[i] = j
 ---
 
 ## 15. Minimum Window Substring
+**Given:** strings s and t
+**Expects:** return the smallest substring of s containing all characters of t
 **Pattern:** Sliding window with frequency deficit — `#sliding-window`
 
 **Approach:**
@@ -206,6 +236,8 @@ lps[i] = j
 ---
 
 ## 16. Permutation in String (s2 contains a permutation of s1)
+**Given:** strings s1 and s2
+**Expects:** return true if s2 contains any permutation of s1 as a substring
 **Pattern:** Fixed-size sliding window + frequency match — `#sliding-window`
 
 **Approach:**
@@ -217,6 +249,8 @@ lps[i] = j
 ---
 
 ## 17. Count and Say
+**Given:** an integer n
+**Expects:** return the n-th term of the count-and-say sequence
 **Pattern:** Run-length encoding iteration
 
 **Approach:** For `n` rounds, read current string as runs: `count + digit` concatenated.
@@ -226,6 +260,8 @@ lps[i] = j
 ---
 
 ## 18. Longest Repeating Character Replacement
+**Given:** a string s and a max replacement count k
+**Expects:** return the longest substring obtainable after replacing at most k characters
 **Pattern:** Sliding window where `window_len - max_freq <= k` — `#sliding-window`
 
 **Approach:**
@@ -242,6 +278,8 @@ valid window ⇔ len(window) - count(most frequent char) <= k
 ---
 
 ## 19. Largest Number (arrange array of ints into max string)
+**Given:** an array of integers
+**Expects:** arrange them to form the largest possible number string
 **Pattern:** Custom comparator on string concatenation
 
 **Approach:** Sort with comparator:
@@ -263,6 +301,8 @@ Edge: strip leading zeros in the result.
 ---
 
 ## 20. Integer to Roman / Roman to Integer
+**Given:** an integer (or a roman numeral string)
+**Expects:** return its roman numeral (or integer) equivalent
 **Pattern:** Greedy value table / right-to-left scan
 
 **Approach (int→roman):** iterate value-symbol table from largest; subtract while it fits.
@@ -277,6 +317,8 @@ table = [(1000,'M'),(900,'CM'),(500,'D'),(400,'CD'),(100,'C'),(90,'XC'),(50,'L')
 ---
 
 ## 21. Multiply Strings
+**Given:** two number strings
+**Expects:** return their product as a string without converting to integers
 **Pattern:** Schoolbook digit multiplication into a result array
 
 **Approach:**
@@ -288,6 +330,8 @@ table = [(1000,'M'),(900,'CM'),(500,'D'),(400,'CD'),(100,'C'),(90,'XC'),(50,'L')
 ---
 
 ## 22. Isomorphic Strings
+**Given:** two strings
+**Expects:** return true if their characters map one-to-one preserving positions
 **Pattern:** Bijection check — two maps (char → char)
 
 **Approach:** `map_s[t_char]` and `map_t[s_char]` must both stay consistent; fail on conflict.
@@ -297,6 +341,8 @@ table = [(1000,'M'),(900,'CM'),(500,'D'),(400,'CD'),(100,'C'),(90,'XC'),(50,'L')
 ---
 
 ## 23. Word Break
+**Given:** a string s and a dictionary of words
+**Expects:** return true if s can be segmented entirely into dictionary words
 **Pattern:** DP with hash set of dictionary — `#dp`
 
 **Approach:**
@@ -308,6 +354,8 @@ table = [(1000,'M'),(900,'CM'),(500,'D'),(400,'CD'),(100,'C'),(90,'XC'),(50,'L')
 ---
 
 ## 24. Rabin-Karp / Repeated DNA Sequences (10-char substrings)
+**Given:** a DNA string over A/C/G/T
+**Expects:** return all 10-character substrings that appear more than once
 **Pattern:** Rolling hash with fixed window
 
 **Approach:**
