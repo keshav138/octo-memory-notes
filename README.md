@@ -14,9 +14,9 @@
 </p>
 
 
-![Them Notes](A1.png)
-![Them Notes](A2.png)
-![Them Notes](A3.png)
+![Them Notes](0IMAGES/A1.png)
+![Them Notes](0IMAGES/A2.png)
+![Them Notes](0IMAGES/A3.png)
 
 Repo contains all my md files for everything I'm learning or planning on learning.
 Documents are numbered and related files are linked.
