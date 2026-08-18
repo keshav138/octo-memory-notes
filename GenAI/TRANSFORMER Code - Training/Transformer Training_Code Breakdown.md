@@ -359,6 +359,128 @@ Same idea applies to `LayerNormalization` in your case too, though it doesn't cu
             label = batch["label"].to(device)
             loss = loss_fn(proj_output.view(-1, tokenizer_tgt.get_vocab_size()), label.view(-1))
 ```
+Here is the breakdown of how the dimension changes from `d_model` to `vocab_size` and what is conceptually happening inside the model.
+
+  
+
+### 1. The "How" (The Mechanics)
+
+The `model.project` step is almost always a single standard **Linear layer** (also called a Fully Connected or Dense layer) in PyTorch: `nn.Linear(d_model, vocab_size)`.
+
+  
+
+When you pass the `decoder_output` through this layer, under the hood, PyTorch performs a matrix multiplication:
+
+  
+
+- **Input:** `(Batch, seq_len, d_model)`
+    
+      
+    
+- **Weights of Projection Layer:** `(d_model, vocab_size)`
+    
+      
+    
+- **Math:** `[Batch × seq_len × d_model] @ [d_model × vocab_size] + bias`
+    
+      
+    
+- **Output:** `(Batch, seq_len, vocab_size)`
+    
+      
+    
+
+The Linear layer operates on the very last dimension independently. It looks at each word's `d_model` vector one by one and multiplies it by its internal weights to output a `vocab_size` vector.
+
+  
+
+### 2. The "What" (The Conceptual Meaning)
+
+To understand what this represents for a single word in your batch, let's look at the "before" and "after" of the projection layer.
+
+  
+
+#### Before Projection: `d_model` (The "Concept")
+
+By the time a word reaches the end of the decoder, it is represented by a dense vector of size `d_model` (for example, 512 numbers).
+
+  
+
+You can think of this 512-dimensional vector as the model's **abstract thought** or **concept** for what the next word should be, based on all the context it has seen so far.
+
+  
+
+- It isn't English, Spanish, or any specific word yet.
+    
+      
+    
+- It's a mathematical representation that says: _"The next word should be a noun, related to animals, specifically a furry pet, and it should be singular."_
+    
+      
+    
+
+#### After Projection: `vocab_size` (The "Dictionary Scores")
+
+The model needs to translate its "abstract thought" into an actual word from its dictionary (vocabulary).
+
+  
+
+The Projection Layer takes that `d_model` concept vector and compares it against every single word the model knows. If your `vocab_size` is 30,000, the layer outputs an array of 30,000 numbers.
+
+  
+
+These 30,000 numbers are called **Logits** (raw, unnormalized prediction scores).
+
+  
+
+- Each index in this array corresponds to a specific word in your tokenizer's dictionary.
+    
+      
+    
+- A **high positive number** at a specific index means the `d_model` concept strongly matches that specific word.
+    
+      
+    
+- A **large negative number** means it's a terrible match.
+    
+      
+    
+
+### A Concrete Example
+
+Imagine you are looking at exactly **one word position** in one sequence in your batch.
+
+  
+
+1. **The Decoder Output:** `[0.12, -0.55, 0.89, ...]` _(512 numbers long)_.
+    
+      
+    - _Meaning:_ The model's internal understanding of the next word.
+        
+          
+        
+2. **The Projection Layer:** Multiplies those 512 numbers by its learned weights to generate 30,000 new numbers.
+    
+      
+    
+3. **The Proj Output:** `[-12.4, 2.1, 8.9, -5.5, ...]` _(30,000 numbers long)_.
+    
+      
+    - Index 0 (`-12.4`): The word "apple". (Bad match)
+        
+          
+        
+    - Index 1 (`2.1`): The word "the". (Okay match)
+        
+          
+        
+    - Index 2 (`8.9`): The word "cat". (Excellent match!)
+        
+          
+        
+
+When you finally pass this to the `CrossEntropyLoss` function (like in your code), PyTorch will internally convert those 30,000 raw scores into percentages (probabilities) using Softmax, and penalize the model if the highest percentage isn't the correct label.
+
 
 - `label` — the ground-truth next-tokens for this batch, pulled out of `batch` (built back in `BilingualDataset`).
 - `.view(-1, vocab_size)` — `proj_output` is shaped `(batch, seq_len, vocab_size)`; `CrossEntropyLoss` expects predictions shaped `(N, vocab_size)` where `N` is just "how many individual predictions." `.view(-1, vocab_size)` flattens the batch and seq_len dimensions together into one long list of per-token predictions — e.g. `(8, 350, vocab_size)` becomes `(2800, vocab_size)`.

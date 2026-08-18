@@ -1,4 +1,4 @@
-`tiktoken` converts text into numerical token IDs ==by using a Byte Pair Encoding (BPE) algorithm==. Instead of splitting by whole words, it breaks text into frequent sub-word chunks and raw bytes, assigning a unique integer ID to each chunk based on a pre-trained vocabulary. [1, 2, 3]
+`tiktoken` converts text into numerical token IDs by using a Byte Pair Encoding (BPE) algorithm. Instead of splitting by whole words, it breaks text into frequent sub-word chunks and raw bytes, assigning a unique integer ID to each chunk based on a pre-trained vocabulary. [1, 2, 3]
 
 ## How the Encoding Process Works
 
