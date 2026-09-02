@@ -490,6 +490,26 @@ greet(name: "Keshav")
 func square(_ x: Int) -> Int {
     return x * x
 }
+
+The underscore (_) omits the argument label when calling the function, allowing you to pass the argument directly without naming it.
+In Swift, function parameters have both an argument label (used when calling the function) and a parameter name (used inside the function body). By default, the parameter name serves as both.
+Without the underscore:
+func square(x: Int) -> Int {
+    return x * x
+}
+
+let result = square(x: 5) // You must write "x:"
+
+With the underscore:
+func square(_ x: Int) -> Int {
+    return x * x
+}
+
+let result = square(5) // No label needed
+
+Swift convention uses _ when the function's purpose or mathematical nature makes an argument label redundant, keeping calls like square(5) or abs(-3) clean and natural to read.
+
+
 ```
 
 Call:
