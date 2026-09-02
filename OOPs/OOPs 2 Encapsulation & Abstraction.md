@@ -35,7 +35,7 @@ You only interact with simple buttons (`brewEspresso()`, `steamMilk()`). You do 
 
 Java
 
-```
+```java
 // ABSTRACTION: Exposing only WHAT the machine does
 public interface CoffeeMachine {
     void brewEspresso();
@@ -51,7 +51,7 @@ The machine must ensure water levels do not drop below zero, the boiler temperat
 
 Java
 
-```
+```java
 // ENCAPSULATION: Bundling data and guarding internal state
 public class PremiumEspressoMachine implements CoffeeMachine {
     
