@@ -53,11 +53,11 @@ ALTER TABLE table MODIFY column datatype;  -- different per DB
 
 ### `DROP` vs `TRUNCATE` vs `DELETE` (Common MCQ trap!)
 
-| Command | Speed | Can Rollback? | Removes Structure? | Resets Auto-increment? | WHERE clause? |
-|---------|-------|---------------|--------------------|------------------------|----------------|
-| `DELETE` | Slow | ✅ Yes | ❌ No | ❌ No | ✅ Yes |
-| `TRUNCATE` | Fast | ❌ No (in most DBs) | ❌ No | ✅ Yes | ❌ No |
-| `DROP` | Fast | ❌ No | ✅ Yes (entire table) | N/A | ❌ No |
+| Command    | Speed | Can Rollback?      | Removes Structure?   | Resets Auto-increment? | WHERE clause? |
+| ---------- | ----- | ------------------ | -------------------- | ---------------------- | ------------- |
+| `DELETE`   | Slow  | ✅ Yes              | ❌ No                 | ❌ No                   | ✅ Yes         |
+| `TRUNCATE` | Fast  | ❌ No (in most DBs) | ❌ No                 | ✅ Yes                  | ❌ No          |
+| `DROP`     | Fast  | ❌ No               | ✅ Yes (entire table) | N/A                    | ❌ No          |
 
 ## 3. Filtering & Conditions
 
