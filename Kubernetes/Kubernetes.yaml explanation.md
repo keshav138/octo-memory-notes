@@ -43,7 +43,7 @@ Now the actual files for your project. Since minikube has its own internal Docke
 
 ---**The `---` in the middle** just separates two manifests in one file. Kubernetes reads them as two separate objects.
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:

@@ -25,6 +25,24 @@ Here is the **OSI Model** (Open Systems Interconnection) with all 7 layers and t
 - **Access control** (CSMA/CD, CSMA/CA – for Ethernet/WiFi)
 - **Switching** (layer 2 switches operate here)
 
+
+Carrier Sense Multiple Access (CSMA) is a network protocol used by devices to share a communication channel by listening to the medium before transmitting data. 
+
+  
+
+How CSMA Works
+
+- Listen Before Talk: A device checks the shared channel (carrier) to see if another device is currently sending data.
+- Idle Channel: If the channel is free, the device begins transmitting its data.
+- Busy Channel: If the channel is in use, the device waits before trying again.
+- Collisions: Collisions can still happen if two devices check the channel at the same time and transmit before hearing each other due to propagation delay. You can learn more about the underlying mechanics from Wikipedia's CSMA Overview. 
+
+Main Types of CSMA
+
+- CSMA/CD (Collision Detection): Used mostly in wired networks like traditional Ethernet. The device stops transmitting immediately if it detects a signal overlap (collision) on the wire.
+- CSMA/CA (Collision Avoidance): Used in wireless networks like Wi-Fi (IEEE 802.11) where devices cannot easily listen while sending. It uses random wait times and signals (like Ready to Send/Clear to Send) to prevent collisions before they happen. 
+
+
 > Key phrase: *“Hop-to-hop delivery using MAC addresses”*
 
 ---

@@ -1033,23 +1033,3 @@ Then access Jenkins at `http://localhost:9090`
     > A Jenkinsfile is a text file that contains the definition of a Jenkins Pipeline written in Groovy DSL. It is typically stored in the root of the project's Git repository.
 
 ---
-
-## Teaching Plan
-
-| Time | Activity |
-|---|---|
-| 0–10 min | Explain concepts: Jenkins, CI/CD, Architecture |
-| 10–15 min | Show diagrams, answer concept questions |
-| 15–35 min | Live demo: Installation + Programs 1 & 2 |
-| 35–55 min | Live demo: Programs 3–5 (Python, GitHub, Pipeline) |
-| 55–80 min | Students perform independently |
-| 80–90 min | Viva questions, troubleshoot common errors |
-
-**Pro Tip:** Walk around while students are working. The most common issues are:
-- Selecting "Windows batch command" instead of "Execute shell"
-- Running Docker commands inside the container
-- Python not installed — guide them through the `apt install` process
-
----
-
-*Jenkins Lab Guide — For Classroom Use*
