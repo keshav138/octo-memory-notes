@@ -6,14 +6,15 @@ Excellent follow-up. API design is often the differentiator between a junior and
 
 ### Core API Types
 
-| Type | Protocol | Use Case |
-|------|----------|----------|
-| **REST** | HTTP | CRUD, web APIs |
-| **GraphQL** | HTTP/WS | Complex queries, mobile, over-fetching avoidance |
-| **gRPC** | HTTP/2 | Microservices, high performance, polyglot |
-| **WebSocket** | WS | Real-time, bidirectional |
-| **Webhook** | HTTP | Event-driven, async callbacks |
+| Type          | Protocol | Use Case                                         |
+| ------------- | -------- | ------------------------------------------------ |
+| **REST**      | HTTP     | CRUD, web APIs                                   |
+| **GraphQL**   | HTTP/WS  | Complex queries, mobile, over-fetching avoidance |
+| **gRPC**      | HTTP/2   | Microservices, high performance, polyglot        |
+| **WebSocket** | WS       | Real-time, bidirectional                         |
+| **Webhook**   | HTTP     | Event-driven, async callbacks                    |
 
+[[2.5 Webhooks]]
 **Interview tip**: Know REST deeply; mention others as tradeoffs.
 
 ### API-First Design Principles
