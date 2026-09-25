@@ -6,15 +6,15 @@
 
 ## 0. Quick Mindset Shifts
 
-| C++ | Python |
-|-----|--------|
-| `int`, `long long` | `int` (arbitrary precision, no overflow) |
-| `INT_MAX / INT_MIN` | `float('inf')` / `float('-inf')` |
-| `NULL` | `None` |
-| `cout << x` | `print(x)` |
-| `cin >> x` | `x = int(input())` |
-| `auto` | just assign it |
-| `typedef` | just use the type directly |
+| C++                   | Python                                    |
+| --------------------- | ----------------------------------------- |
+| `int`, `long long`    | `int` (arbitrary precision, no overflow)  |
+| `INT_MAX / INT_MIN`   | `float('inf')` / `float('-inf')`          |
+| `NULL`                | `None`                                    |
+| `cout << x`           | `print(x)`                                |
+| `cin >> x`            | `x = int(input())`                        |
+| `auto`                | just assign it                            |
+| `typedef`             | just use the type directly                |
 | Pass by reference `&` | Objects are refs; use `[:]` to copy lists |
 
 ---

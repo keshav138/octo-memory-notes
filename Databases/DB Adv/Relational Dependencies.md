@@ -26,3 +26,26 @@ Result:
 - Candidate keys: {A,C}, {B,C}
 - Pick {A,C} as **primary** → {B,C} is **alternate**
 - Prime: A, B, C — Non-prime: D, E
+
+---
+
+# Super Key
+A super key is a set of one or more attributes (columns) that can uniquely identify a row (tuple) in a database table. 
+
+Key Concepts
+
+- **Uniqueness:** No two rows can have the same combination of values for the attributes in a super key.
+
+- **Redundancy:** A super key can contain extra, unnecessary attributes that are not needed for unique identification.
+
+- **Superset:** Every candidate key and primary key is a super key, but not every super key is a candidate key. 
+
+Example
+
+Consider a `Student` table with columns: `Student_ID`, `Name`, and `Email`. 
+
+- `Student_ID` is unique, so it is a super key.
+
+- `{Student_ID, Name}` is also a super key because it still uniquely identifies the row, even though `Name` is extra and redundant.
+
+- `Name` alone is not a super key because two students might share the same name. 
