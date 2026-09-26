@@ -1,6 +1,5 @@
 # JavaScript One-Nighter 
 
-Accenture's tech assessment (NQT-style / CareerHub / AMCAT-style vendor tests) for the "web" section leans on:
 
 - **MCQs on HTML/CSS/JS fundamentals**
 - **"What is the output?" JS snippets** (the classic gotcha style — coercion, hoisting, scope, `this`, async order)
